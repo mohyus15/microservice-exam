@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/customers/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/customers/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/discovery-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/discovery-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fruad/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fruad/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/frudster/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/frudster/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/notific/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/notific/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/notification/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orders/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/orders/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/products/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/products/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shipping/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shipping/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
