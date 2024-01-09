@@ -7,11 +7,11 @@
         <option value="$PROJECT_DIR$/backend-microservices/shipping/pom.xml" />
         <option value="$PROJECT_DIR$/backend-microservices/products/pom.xml" />
         <option value="$PROJECT_DIR$/backend-microservices/orders/pom.xml" />
-        <option value="$PROJECT_DIR$/backend-microservices/notific/pom.xml" />
         <option value="$PROJECT_DIR$/backend-microservices/fruad/pom.xml" />
         <option value="$PROJECT_DIR$/backend-microservices/discovery-server/pom.xml" />
         <option value="$PROJECT_DIR$/backend-microservices/customers/pom.xml" />
         <option value="$PROJECT_DIR$/backend-microservices/api-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/backend-microservices/notific/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
