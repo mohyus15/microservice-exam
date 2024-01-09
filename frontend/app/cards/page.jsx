@@ -13,7 +13,7 @@ export default CardPage
 
 
 
-export const Card = [
+export const action = [
     {
       id: 1,
       title: "Total Users",

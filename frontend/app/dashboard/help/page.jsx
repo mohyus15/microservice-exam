@@ -7,7 +7,6 @@ const GetHjep =() => {
         return (
             <div>
                 contect information help are here.
-
             </div>
         );
     

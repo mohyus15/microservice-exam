@@ -34,8 +34,8 @@ const menuItems = [
           icon: <MdShoppingBag />,
         },
         {
-          title: "Transactions",
-          path: "/dashboard/transactions",
+          title: "Orders",
+          path: "/dashboard/orders",
           icon: <MdAttachMoney />,
         },
       ],
@@ -77,10 +77,10 @@ const  Sidebar =() => {
           
         </div>
         <ul className={styles.list}>
-          {menuItems.map((cat) => (
-            <li key={cat.title}>
-              <span className={styles.cat}>{cat.title}</span>
-              {cat.list.map((item) => (
+          {menuItems.map((menu) => (
+            <li key={menu.title}>
+              <span className={styles.cat}>{menu.title}</span>
+              {menu.list.map((item) => (
                 <MenuLink item={item} key={item.title} />
               ))}
             </li>
