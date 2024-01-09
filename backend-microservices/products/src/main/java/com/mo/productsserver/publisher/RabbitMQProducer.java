@@ -1,7 +1,9 @@
 package com.mo.productsserver.publisher;
 
+import com.mo.productsserver.models.Products;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -15,19 +17,15 @@ public class RabbitMQProducer {
     @Value("${rabbitmq.routing.key}")
     private String routing_key;
     private final RabbitTemplate rabbitTemplate;
-
     public RabbitMQProducer(RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
     }
     public void publishMessage(
             String message,
-            Object payload,
-             String exchange,
-             String routing_key){
+            Products payload){
         LOGGER.info(String.format(
-                "message sender to rabbitmq from the products -> %s",
-                        payload),
-                exchange, routing_key, message);
+                message,
+                "message sender to rabbitmq from the products -> %s", payload));
         rabbitTemplate.convertAndSend(exchange, routing_key,payload);
 
     }

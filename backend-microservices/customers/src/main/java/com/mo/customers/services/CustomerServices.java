@@ -45,13 +45,7 @@ public class CustomerServices {
 
             producer.publishMessage(
                     "message coming from customer server",
-                    customer,
-                    "customers_exchange",
-                    "customers_routing_key"
-            );
-
-
-
+                    customer);
 
 
     }

@@ -11,9 +11,11 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
+
 @Getter
 @Configuration
-public class RabbitConfigForOrders {
+public class RabbitConfigForProducts {
     @Value("${rabbitmq.queue.name}")
     public String name;
     @Value("${rabbitmq.exchange.name}")
@@ -30,16 +32,18 @@ public class RabbitConfigForOrders {
         return new TopicExchange(exchange);
     }
     @Bean
-   public Binding binding(){
+    public Binding binding(){
         return BindingBuilder.bind(productqueue())
                 .to(topicExchange())
                 .with(productsRouterKey);
-   }
-   @Bean
-   public MessageConverter converter(){
+    }
+    @Bean
+    public MessageConverter converter(){
         return new Jackson2JsonMessageConverter();
-   }
+    }
 
-
+    @Bean
+    public RestTemplate restTemplate(){
+        return new RestTemplate();
+    }
 }
-

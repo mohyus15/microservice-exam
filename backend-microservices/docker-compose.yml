@@ -1,0 +1,182 @@
+version: "3"
+services:
+  rabbitmq:
+    image: rabbitmq:3.12.12-management-alpine
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - rabbitmq
+    restart: unless-stopped
+
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: oslo2020
+      RABBITMQ_DEFAULT_VHOST: /
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    networks:
+      - postgres
+    restart: unless-stopped
+
+
+  discovery-server:
+    container_name: discovery-server
+    build:
+      context: ./discovery-server
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+
+  api-gateway:
+    container_name: api-gateway
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - discovery-server
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+  orders:
+    container_name: orders
+    build:
+      context: ./orders
+      dockerfile: Dockerfile
+    ports:
+      - "8085:8085"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_RABBITMQ_HOST=rabbitmq
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - postgres
+      - rabbitmq
+  products:
+    container_name: products
+    build:
+      context: ./products
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_RABBITMQ_HOST=rabbitmq
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - postgres
+      - rabbitmq
+  shipping:
+    container_name: shipping
+    build:
+      context: ./shipping
+      dockerfile: Dockerfile
+    ports:
+      - "8087:8087"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_RABBITMQ_HOST=rabbitmq
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - postgres
+  notification:
+    container_name: notification
+    build:
+      context: ./notific
+      dockerfile: Dockerfile
+    ports:
+      - "8086:8086"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_RABBITMQ_HOST=rabbitmq
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - postgres
+      - rabbitmq
+  customers:
+    container_name: customers
+    build:
+      context: ./customers
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_RABBITMQ_HOST=rabbitmq
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - postgres
+      - rabbitmq
+  fruad:
+    container_name: fruad
+    build:
+      context: ./fruad
+      dockerfile: Dockerfile
+    ports:
+      - "8084:8084"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_RABBITMQ_HOST=rabbitmq
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - postgres
+      - rabbitmq
+  frontend:
+    image: frontend
+    build:
+      context: ../../konto-micro-24/frontend
+      dockerfile: Dockerfile
+    ports:
+      - '3000:80'
+networks:
+  postgres:
+    driver: bridge
+  rabbitmq:
+    driver: bridge
+  spring:
+    driver: bridge
+
+# Volumes
+volumes:
+  postgres:
+  pgadmin:

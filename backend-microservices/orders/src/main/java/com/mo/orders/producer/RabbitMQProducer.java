@@ -25,11 +25,10 @@ public class RabbitMQProducer {
             String exchange,
             String routing_key){
         LOGGER.info(String.format(
-                        "message sender to rabbitmq from the customers-> %s",
+                        "message sender to rabbitmq from the notifications-> %s",
                         payload),
                 exchange, routing_key, message);
         rabbitTemplate.convertAndSend(exchange, routing_key,payload);
 
     }
 }
-

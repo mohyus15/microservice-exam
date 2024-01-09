@@ -46,6 +46,7 @@ public class CustomerController {
     @GetMapping(path = "/{id}")
     @PreAuthorize("hasAuthority('USER')")
     public void Customer (@PathVariable("id") Integer id) {
+        System.out.println("user name");
         customerServices.getProductsById(id);
     }
 

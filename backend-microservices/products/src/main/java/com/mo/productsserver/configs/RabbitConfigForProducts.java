@@ -2,7 +2,10 @@
 package com.mo.productsserver.configs;
 
 import lombok.Getter;
-import org.springframework.amqp.core.*;
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,7 +19,7 @@ public class RabbitConfigForProducts {
     public String name;
     @Value("${rabbitmq.exchange.name}")
     public String exchange;
-    @Value("${rabbitmq.routing.key}")
+    @Value("${products_routing_key}")
     public String productsRouterKey;
 
     @Bean
@@ -24,13 +27,13 @@ public class RabbitConfigForProducts {
         return new Queue(name);
     }
     @Bean
-    public TopicExchange topicExchange(){
+    public TopicExchange exchange(){
         return new TopicExchange(exchange);
     }
     @Bean
    public Binding binding(){
         return BindingBuilder.bind(productqueue())
-                .to(topicExchange())
+                .to(exchange())
                 .with(productsRouterKey);
    }
    @Bean

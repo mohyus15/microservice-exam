@@ -1,8 +1,6 @@
-FROM openjdk:17-jdk
+FROM eclipse-temurin:17
+LABEL mentainer="mohyus15@gmail.com"
 WORKDIR /app
-COPY pom.xml .
-COPY src ./src
-# Run the application
-COPY ./target/products-0.0.1-SNAPSHOT.jar .
-CMD ["java", "-jar", "target/products-0.0.1-SNAPSHOT.jar"]
 EXPOSE 8081
+COPY /target/products-0.0.1-SNAPSHOT.jar .
+CMD ["java", "-jar", "products-0.0.1-SNAPSHOT.jar"]

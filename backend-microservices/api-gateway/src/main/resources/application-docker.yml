@@ -1,0 +1,80 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-server:8761/eureka/
+
+logging:
+  level:
+    com:
+      netflix:
+        discovery:
+          shared:
+            resolver:
+              aws:
+                ConfigClusterResolver: WARN
+    gateway:
+      filters:
+        JwtAuthFilter: INFO
+    org:
+      springframework:
+        cloud:
+          gateway:
+            route:
+              routedefinition-locator: INFO
+    reactor:
+      netty: INFO
+    root: INFO
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+            allowedHeaders:
+              - "*"
+            allowCredentials: false
+
+      routes:
+        - id: notification
+          predicates:
+            - Path=/api/notification/**
+          uri: lb://NOTIFICATION
+          filters:
+            - name: AuthenticationFilter
+        - id: products
+          predicates:
+            - Path=/api/products/**
+          uri: lb://PRODUCTS
+          filters:
+            - name: AuthenticationFilter
+        - id: customers
+          predicates:
+            - Path=/api/customers/**
+          uri: lb://CUSTOMERS
+          filters:
+            - name: AuthenticationFilter
+        - id: orders
+          predicates:
+            - Path=/api/orders/**
+          uri: lb://ORDERS
+          filters:
+            - name: AuthenticationFilter
+        - id: shipping
+          predicates:
+            - Path=/api/shipping/**
+          uri: lb://SHIPPING
+          filters:
+            - name: AuthenticationFilter

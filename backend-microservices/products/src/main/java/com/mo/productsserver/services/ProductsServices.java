@@ -29,10 +29,9 @@ public class ProductsServices {
         productRepository.save(products);
 
         producer.publishMessage(
-                "new products aare send to rabbitmq",
-                products,
-                "products_exchange",
-                "products_routing_key");
+                "new products are send to rabbitmq",
+                products);
+
 
     }
     public List<Products> getProducts() {
