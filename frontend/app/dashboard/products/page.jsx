@@ -65,11 +65,6 @@ const ProductsPage = () => {
                 <td>{product.price}</td>
                 <td>
                   <div className={styles.buttons}>
-                    <Link href={`/dashboard/productsDetail/${product.id}`}>
-                      <button className={`${styles.button} ${styles.view}`}>
-                        View
-                      </button>
-                    </Link>
                     <form action={deleteProduct}>
                       <input type="hidden" name="id" value={product.id} />
                       <button className={`${styles.button} ${styles.delete}`}>
