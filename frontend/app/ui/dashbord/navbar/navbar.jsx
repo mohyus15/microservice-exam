@@ -6,6 +6,7 @@ import {
   MdDarkMode,
   MdSearch,
 } from "react-icons/md";
+import Notification from "@/app/dashboard/notifcation/page";
 
 const Navbar = () => {
   const pathname = usePathname();

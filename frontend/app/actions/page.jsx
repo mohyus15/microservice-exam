@@ -7,7 +7,6 @@ const updateProducts = () =>{
     console.log("add products")
 } 
  const deleteProduct =  async () =>{
-    "use server"
     console.log("delete")
 } 
 export default deleteProduct

@@ -38,6 +38,11 @@ const menuItems = [
           path: "/dashboard/orders",
           icon: <MdAttachMoney />,
         },
+        {
+          title: "notification",
+          path: "/dashboard/notifcation",
+          icon: <MdAttachMoney />,
+        },
       ],
     },
     

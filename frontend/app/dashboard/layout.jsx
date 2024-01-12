@@ -3,11 +3,11 @@ import Navbar from "../ui/dashbord/navbar/navbar"
 import Sidebar from "../ui/dashbord/sidebar/sidebar"
 import styles from "../ui/dashbord/dashbord.module.css"
 import Footer from "../ui/dashbord/footer/page"
-import Providers from '../api/auth/Providers'
+
 
 const  layout =({children}) => {
   return (
-    <Providers>
+
     <div className={styles.container}>
     <div className={styles.menu}>
       <Sidebar/>
@@ -18,7 +18,7 @@ const  layout =({children}) => {
       <Footer/>
     </div>
   </div>
-  </Providers>
+
   )
 }
 
