@@ -1,10 +1,8 @@
 package com.mo.notific.controller;
-//import com.mo.notific.Cnsumer.ProductsConsumer;
 import com.mo.notific.models.Notification;
 import com.mo.notific.models.NotificationRequest;
 import com.mo.notific.services.NotificationServer;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,7 +10,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("api/notification")
+@RequestMapping("api/notifications")
 public class NotificationsController {
   private final NotificationServer notificationServer;
     public NotificationsController(NotificationServer notificationServer) {
@@ -31,9 +29,10 @@ public class NotificationsController {
     public void getNotificationById(@PathVariable("id") Long id) {
         notificationServer.getNotification(id);
     }
-    @GetMapping("/allNotification")
-    @PreAuthorize("hasAuthority('ADMIN')")
-    public List<Notification> getProducts(){
+
+    @GetMapping
+    public List<Notification> getNotifications(){
         return notificationServer.getAllNotifications();
     }
+
 }

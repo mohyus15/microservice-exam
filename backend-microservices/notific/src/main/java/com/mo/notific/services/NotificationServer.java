@@ -1,6 +1,4 @@
 package com.mo.notific.services;
-
-//import com.mo.notific.Cnsumer.ProductsConsumer;
 import com.mo.notific.models.Notification;
 import com.mo.notific.models.NotificationRequest;
 import com.mo.notific.repository.NotificationRepository;

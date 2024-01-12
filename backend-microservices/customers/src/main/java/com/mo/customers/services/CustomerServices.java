@@ -1,26 +1,28 @@
 package com.mo.customers.services;
+
 import com.mo.customers.FraudCheckResponse;
 import com.mo.customers.model.Customer;
 import com.mo.customers.model.CustomerRequest;
 import com.mo.customers.publisher.RabbitMQProducer;
 import com.mo.customers.repository.CustomerRepository;
-import com.mo.customers.security.JwtService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 @Service
+
 public class CustomerServices {
     private  final CustomerRepository customerRepository;
     private final PasswordEncoder passwordEncoder;
     private final RestTemplate restTemplate;
     private final RabbitMQProducer producer;
 
-    public CustomerServices(CustomerRepository customerRepository, PasswordEncoder passwordEncoder,  RestTemplate restTemplate, RabbitMQProducer producer) {
+    public CustomerServices(CustomerRepository customerRepository,
+                            PasswordEncoder passwordEncoder, RestTemplate restTemplate,
+                            RabbitMQProducer producer) {
         this.customerRepository = customerRepository;
         this.passwordEncoder = passwordEncoder;
-
         this.restTemplate = restTemplate;
         this.producer = producer;
     }
@@ -37,16 +39,16 @@ public class CustomerServices {
 
         customer.setPassword(passwordEncoder.encode(customer.getPassword()));
         customerRepository.saveAndFlush(customer);
-        FraudCheckResponse response = restTemplate.getForObject("http://localhost:8084/api/fraud/{customerId}", FraudCheckResponse.class, customer.getId());
+        FraudCheckResponse response = restTemplate.getForObject("http://localhost:8084/api/fraud/{customerId}",
+                FraudCheckResponse.class, customer.getId());
         assert response != null;
         if (response.isFraudster()) {
             throw new IllegalAccessException("this is a fraudster");
         }
 
-            producer.publishMessage(
-                    "message coming from customer server",
-                    customer);
-
+        producer.publishMessage(
+                "message coming from customer server",
+                customer);
 
     }
 

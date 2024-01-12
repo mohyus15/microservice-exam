@@ -16,7 +16,7 @@ public class RouteValidator {
             "/api/customers/register",
             "/api/customers/login",
             "/api/customers/all",
-            "/api/notification",
+            "/api/notifications",
             "/api/shipping",
             "/api/notification/allNotification"
 

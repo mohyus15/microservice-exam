@@ -29,10 +29,7 @@ public class ProductsServices {
         productRepository.save(products);
 
         producer.publishMessage(
-                "new products are send to rabbitmq",
                 products);
-
-
     }
     public List<Products> getProducts() {
         return productRepository.findAll();

@@ -23,7 +23,7 @@ public class ShippingController {
         shippingServer.addToAddress(shippingRequest);
 
     }
-    @GetMapping("/all")
+    @GetMapping()
     //@PreAuthorize("hasAuthority('ADMIN')")
     public List<Shipping> shippingAddresses(){
        return shippingServer.gallAddress();

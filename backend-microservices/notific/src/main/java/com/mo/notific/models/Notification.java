@@ -13,12 +13,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Notification {
+
+
     @Id
-    @SequenceGenerator(name = "Notification_id_sequence",
-            sequenceName = "Notifications_id_sequence"
+    @SequenceGenerator(name = "products_id_sequence",
+            sequenceName = "products_id_sequence"
     )
     @GeneratedValue(strategy = GenerationType.AUTO,
-            generator = "Notification_id_sequence")
+            generator = "products_id_sequence")
     private Long id;
     private String setOrderNumber;
     private String email;

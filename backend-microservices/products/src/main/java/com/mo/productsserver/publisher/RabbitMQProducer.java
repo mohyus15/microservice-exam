@@ -11,22 +11,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class RabbitMQProducer {
     private static final Logger LOGGER = LoggerFactory.getLogger(RabbitMQProducer.class);
+    private final RabbitTemplate rabbitTemplate;
+    public RabbitMQProducer(RabbitTemplate rabbitTemplate) {
+        this.rabbitTemplate = rabbitTemplate;
+    }
 
     @Value("${rabbitmq.exchange.name}")
     private String exchange;
     @Value("${rabbitmq.routing.key}")
     private String routing_key;
-    private final RabbitTemplate rabbitTemplate;
-    public RabbitMQProducer(RabbitTemplate rabbitTemplate) {
-        this.rabbitTemplate = rabbitTemplate;
-    }
+
+
     public void publishMessage(
-            String message,
             Products payload){
         LOGGER.info(String.format(
-                message,
-                "message sender to rabbitmq from the products -> %s", payload));
+                "message sender to rabbitmq from  products -> to customers %s", payload));
         rabbitTemplate.convertAndSend(exchange, routing_key,payload);
 
     }
+
+
 }

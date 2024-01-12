@@ -48,12 +48,6 @@ spring:
             allowCredentials: false
 
       routes:
-        - id: notification
-          predicates:
-            - Path=/api/notification/**
-          uri: lb://NOTIFICATION
-          filters:
-            - name: AuthenticationFilter
         - id: products
           predicates:
             - Path=/api/products/**
@@ -76,5 +70,11 @@ spring:
           predicates:
             - Path=/api/shipping/**
           uri: lb://SHIPPING
+          filters:
+            - name: AuthenticationFilter
+        - id: notification
+          predicates:
+            - Path=/api/notifications/**
+          uri: lb://NOTIFICATION
           filters:
             - name: AuthenticationFilter

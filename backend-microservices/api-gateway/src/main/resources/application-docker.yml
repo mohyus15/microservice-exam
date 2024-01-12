@@ -46,11 +46,10 @@ spring:
             allowedHeaders:
               - "*"
             allowCredentials: false
-
       routes:
         - id: notification
           predicates:
-            - Path=/api/notification/**
+            - Path=/api/notifications/**
           uri: lb://NOTIFICATION
           filters:
             - name: AuthenticationFilter
