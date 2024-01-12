@@ -12,7 +12,9 @@ async function productsDetail({params}) {
     const productsList = await getProducts(params.id)
     return (
         <div>
-            details tttttt 2112222112
+           <div>
+            <p>{productsList.id}</p>
+           </div>
         </div>
     );
 }
