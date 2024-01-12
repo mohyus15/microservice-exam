@@ -37,7 +37,7 @@ const SignUp =() => {
   <label htmlFor="password" style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>password</label>
   <input type="password" id="password" name="password" style={{ width: '100%', padding: '8px', marginBottom: '16px', borderRadius: '4px', border: '1px solid #ccc' }} />
   <button type="submit" style={{ backgroundColor: '#4CAF50', color: 'white', padding: '10px', borderRadius: '4px', border: 'none', cursor: 'pointer' }}>Sign up</button>
-  <Link href='../../login'>login if your have account</Link>   
+  <Link href='./login'>login if your have account</Link>   
 </form>
     )
       
