@@ -1,0 +1,41 @@
+
+
+  .root {
+    --bg: #291c2c;
+    --bgSoft: #282237;
+    --text: white;
+    --textSoft: #b7bac1;
+  }
+  
+  .product-container {
+    border: 10px solid #ccc;
+    border-radius: 8px;
+    margin: 20px;
+    margin-right: 500px;
+    width: 80%;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: 40px;
+    object-fit: cover;
+  }
+  
+  .product-info {
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  .product-name {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .product-price {
+    color: #666;
+  }
+  
+  .product-description {
+    color: #888;
+  }
+  

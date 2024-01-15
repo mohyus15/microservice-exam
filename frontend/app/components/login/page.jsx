@@ -36,7 +36,7 @@ const SignUpHnadel = async (formData) => {
       console.log("Bad crendesial ")
     }
   
-    redirect('./login')
+    redirect('./CheckoutSteps')
 
 }
 const Login =() => {
