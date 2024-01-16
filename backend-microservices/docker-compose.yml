@@ -1,4 +1,5 @@
 version: "3.8"
+
 services:
   discovery-server:
     container_name: discovery-server
@@ -37,35 +38,40 @@ services:
       - "15672:15672"
     networks:
       - spring
+
   postgres:
     container_name: postgres
-    image: postgres
+    image: postgres:latest
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: oslo2020
-      POSTGRES_DB: Databases
+      POSTGRES_DB: microservices_DB
     volumes:
       - postgres:/data/postgres
+      - ./create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
     ports:
-      - "5432:5432"
+      - "543:5432"
     networks:
       - postgres
     restart: unless-stopped
 
   pgadmin:
-    container_name: pgadmin
-    image: dpage/pgadmin4
+    container_name: sessionz_pgadmin
+    image: dpage/pgadmin4:latest
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
-      PGADMIN_CONFIG_SERVER_MODE: 'False'
+      PGADMIN_DEFAULT_EMAIL: admin@localhost.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_LISTEN_PORT: 5050
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
     volumes:
       - pgadmin:/var/lib/pgadmin
     ports:
-      - "5050:80"
-    networks:
-      - postgres
-    restart: unless-stopped
+      - '5050:5050'
+    entrypoint:
+      - "/bin/sh"
+      - "-c"
+      - "/bin/echo 'postgres:5432:*:dvega:oslo2020' > /tmp/pgpassfile && chmod 600 /tmp/pgpassfile && /entrypoint.sh"
 
   orders:
     container_name: orders
@@ -168,12 +174,20 @@ services:
       - postgres
       - rabbitmq
 
+  frontend:
+    image: frontend
+    build:
+      context: ../../ex-2024/frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
 
 networks:
   postgres:
     driver: bridge
   spring:
     driver: bridge
+
 volumes:
   postgres:
   pgadmin:

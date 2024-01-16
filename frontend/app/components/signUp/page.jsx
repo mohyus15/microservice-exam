@@ -28,8 +28,7 @@ const SignUpHandle = async (formData) => {
     );
 
     if (response.ok) {
-      // Registration successful, set a cookie or perform any other actions
-      document.cookie = "userLoggedIn=true; path=/"; // Example cookie, modify as needed
+      document.cookie = "userLoggedIn=true; path=/";
 
       // Redirect to the login page
       const router = useRouter();

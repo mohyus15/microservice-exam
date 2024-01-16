@@ -29,7 +29,8 @@ public class CustomerServices {
 
 
     public void CustomerRegister(CustomerRequest request) throws IllegalAccessException {
-
+        var res = getProducts1();
+        customerRepository.save(res);
         Customer customer = Customer.builder()
                 .username(request.username())
                 .email(request.email())
@@ -38,18 +39,28 @@ public class CustomerServices {
                 .build();
 
         customer.setPassword(passwordEncoder.encode(customer.getPassword()));
-        customerRepository.saveAndFlush(customer);
-        FraudCheckResponse response = restTemplate.getForObject("http://localhost:8084/api/fraud/{customerId}",
+        customerRepository.save(customer);
+        FraudCheckResponse response = restTemplate.getForObject("http://postgres:8084/api/fraud/{customerId}",
                 FraudCheckResponse.class, customer.getId());
         assert response != null;
         if (response.isFraudster()) {
             throw new IllegalAccessException("this is a fraudster");
         }
 
+
         producer.publishMessage(
                 "message coming from customer server",
                 customer);
 
+    }
+
+    private static Customer getProducts1() {
+        Customer customer = new Customer();
+        customer.setUsername("mo");
+        customer.setEmail("mo@hotmail.com");
+        customer.setPassword("12345");
+        customer.setRole("ADMIN");
+        return customer;
     }
 
 

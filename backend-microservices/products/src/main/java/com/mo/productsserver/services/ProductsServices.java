@@ -18,6 +18,10 @@ public class ProductsServices {
     }
 
     public void createProducts(ProductsRequest productsRequest) {
+        Products products1 = getProducts1();
+        System.out.println(products1);
+        productRepository.save(products1);
+
         Products products = Products.builder()
                 .name(productsRequest.getName())
                 .brand(productsRequest.getBrand())
@@ -27,10 +31,22 @@ public class ProductsServices {
                 .description(productsRequest.getDescription())
                 .price(productsRequest.getPrice()).build();
         productRepository.save(products);
-
         producer.publishMessage(
                 products);
     }
+
+    private static Products getProducts1() {
+        Products products1 = new Products();
+        products1.setName("iphone");
+        products1.setImage("https://plus.unsplash.com/premium_photo-1680985551009-05107cd2752c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGhvbmV8ZW58MHx8MHx8fDA%3D");
+        products1.setBrand("2023");
+        products1.setCountInStock(12);
+        products1.setCategory("el");
+        products1.setDescription("best phone");
+        products1.setPrice(12);
+        return products1;
+    }
+
     public List<Products> getProducts() {
         return productRepository.findAll();
     }
@@ -42,3 +58,7 @@ public class ProductsServices {
 
 
 }
+
+
+
+

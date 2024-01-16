@@ -8,7 +8,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableDiscoveryClient
 public class  ProductsServerApplication {
 	public static void main(String[] args) {
-		System.out.println("-------------------------------");
 		SpringApplication.run(ProductsServerApplication.class, args);
 	}
 
