@@ -25,4 +25,5 @@ public class Notification {
     private String setOrderNumber;
     private String email;
     private LocalDateTime sentAt;
+
 }

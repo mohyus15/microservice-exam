@@ -1,6 +1,7 @@
 package com.mo.customers.security;
 
 
+import com.mo.customers.common.UserConstant;
 import com.mo.customers.filter.JwtAuthFilter;
 import com.mo.customers.services.CustomerDetailServices;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +13,7 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -38,18 +40,13 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.csrf().disable()
-                .authorizeHttpRequests()
-                .requestMatchers("/api/customers/register").permitAll()
-                .and()
-                .authorizeHttpRequests().requestMatchers("/api/customers/**")
-                .authenticated().and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
-                .and()
-                .authenticationProvider(authenticationProvider())
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-                .build();
+        return http.csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests(request ->
+                request.requestMatchers("/api/customers/register/**").permitAll()
+                        .requestMatchers("/api/customers/admin/**").hasAnyAuthority(UserConstant.ADMIN)
+                        .requestMatchers("/api/customers/**").hasAnyAuthority(UserConstant.USER)
+                        .anyRequest().authenticated()).sessionManagement(manage -> manage.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                        .authenticationProvider(authenticationProvider()).addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+                         .build();
     }
     @Bean
     public UserDetailsService userDetailsService(){

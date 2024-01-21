@@ -20,12 +20,11 @@ public class ProductsConsumer {
     }
 
     @RabbitListener(queues = "${spring.rabbitmq.template.default-receive-queue}")
-    public void consume(NotificationRequest notificationrequest) {
-        LOGGER.info("customer have ordered products request received: {}",notificationrequest);
+    public void consume(NotificationRequest notificationRequest) {
+        LOGGER.info("Customer has ordered products. Request received: {}", notificationRequest);
 
-
-        String orderNumber = notificationrequest.getOrderNumber();
-        String email = notificationrequest.getEmail();
+        String orderNumber = notificationRequest.getOrderNumber();
+        String email = notificationRequest.getEmail();
 
         Notification notification = new Notification();
         notification.setSetOrderNumber(orderNumber);

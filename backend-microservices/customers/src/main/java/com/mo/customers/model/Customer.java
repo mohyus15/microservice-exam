@@ -1,13 +1,10 @@
 package com.mo.customers.model;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.SequenceGenerator;
-import lombok.*;
-import jakarta.persistence.*;
 
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
+@Table(name = "customer")
 @Data
 @Builder
 @Getter
@@ -15,16 +12,12 @@ import jakarta.persistence.*;
 @NoArgsConstructor
 public class Customer {
     @Id
-    @SequenceGenerator(name = "customer_id_sequence",
-            sequenceName = "customer_id_sequence"
-    )
-    @GeneratedValue(strategy = GenerationType.IDENTITY,
-            generator = "customer_id_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_id_sequence")
+    @SequenceGenerator(name = "customer_id_sequence", sequenceName = "customer_id_sequence", allocationSize = 1)
     private Integer id;
+
     private String username;
     private String email;
     private String password;
     private String role;
-
-
 }

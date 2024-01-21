@@ -1,0 +1,14 @@
+/* styles.module.css */
+.stepItem {
+    margin-right: 1rem; /* Adjust spacing between steps */
+  }
+  
+  .stepLink {
+    /* Add your styles for regular links */
+  }
+  
+  .disabled {
+    /* Add your styles for disabled links */
+    opacity: 0.5; /* Example: Reducing opacity for disabled links */
+  }
+  

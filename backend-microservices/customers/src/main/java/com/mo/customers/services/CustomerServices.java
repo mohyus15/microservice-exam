@@ -40,6 +40,7 @@ public class CustomerServices {
 
         customer.setPassword(passwordEncoder.encode(customer.getPassword()));
         customerRepository.save(customer);
+
         FraudCheckResponse response = restTemplate.getForObject("http://postgres:8084/api/fraud/{customerId}",
                 FraudCheckResponse.class, customer.getId());
         assert response != null;

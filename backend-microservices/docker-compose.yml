@@ -1,5 +1,4 @@
-version: "3.8"
-
+version: '3.8'
 services:
   discovery-server:
     container_name: discovery-server
@@ -9,7 +8,7 @@ services:
     ports:
       - "8761:8761"
     environment:
-      - SPRING_PROFILES_ACTIVE=docker
+      SPRING_PROFILES_ACTIVE: docker
     networks:
       - spring
 
@@ -23,7 +22,7 @@ services:
     depends_on:
       - discovery-server
     environment:
-      - SPRING_PROFILES_ACTIVE=docker
+      SPRING_PROFILES_ACTIVE: docker
     networks:
       - spring
 
@@ -31,8 +30,8 @@ services:
     image: rabbitmq:3.13.0-rc.4-management-alpine
     container_name: rabbitmq
     environment:
-      - RABBITMQ_DEFAULT_USER=guest
-      - RABBITMQ_DEFAULT_PASS=guest
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
     ports:
       - "5672:5672"
       - "15672:15672"
@@ -40,38 +39,35 @@ services:
       - spring
 
   postgres:
-    container_name: postgres
     image: postgres:latest
+    container_name: postgres_db
+    volumes:
+      - ./init-scripts:/docker-entrypoint-initdb.d
+      - postgres_data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: oslo2020
-      POSTGRES_DB: microservices_DB
-    volumes:
-      - postgres:/data/postgres
-      - ./create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
     ports:
-      - "543:5432"
+      - "5432:5432"
     networks:
-      - postgres
+      - spring
     restart: unless-stopped
 
+
   pgadmin:
-    container_name: sessionz_pgadmin
+    container_name: pgadmin
     image: dpage/pgadmin4:latest
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@localhost.com
-      PGADMIN_DEFAULT_PASSWORD: admin
-      PGADMIN_LISTEN_PORT: 5050
-      PGADMIN_CONFIG_SERVER_MODE: "False"
-      PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
     volumes:
       - pgadmin:/var/lib/pgadmin
     ports:
-      - '5050:5050'
-    entrypoint:
-      - "/bin/sh"
-      - "-c"
-      - "/bin/echo 'postgres:5432:*:dvega:oslo2020' > /tmp/pgpassfile && chmod 600 /tmp/pgpassfile && /entrypoint.sh"
+      - "5050:80"
+    networks:
+      - spring
+    restart: unless-stopped
 
   orders:
     container_name: orders
@@ -81,14 +77,15 @@ services:
     ports:
       - "8085:8085"
     environment:
-      - SPRING_PROFILES_ACTIVE=docker
-      - SPRING_RABBITMQ_HOST=rabbitmq
+       SPRING_PROFILES_ACTIVE: docker
+       SPRING_RABBITMQ_HOST: rabbitmq
+
     networks:
       - spring
-      - postgres
     depends_on:
       - postgres
       - rabbitmq
+      - discovery-server
 
   products:
     container_name: products
@@ -98,14 +95,14 @@ services:
     ports:
       - "8081:8081"
     environment:
-      - SPRING_PROFILES_ACTIVE=docker
-      - SPRING_RABBITMQ_HOST=rabbitmq
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_RABBITMQ_HOST: rabbitmq
     networks:
       - spring
-      - postgres
     depends_on:
       - postgres
       - rabbitmq
+      - discovery-server
 
   shipping:
     container_name: shipping
@@ -115,13 +112,14 @@ services:
     ports:
       - "8087:8087"
     environment:
-      - SPRING_PROFILES_ACTIVE=docker
-      - SPRING_RABBITMQ_HOST=rabbitmq
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_RABBITMQ_HOST: rabbitmq
     networks:
       - spring
-      - postgres
     depends_on:
       - postgres
+      - rabbitmq
+      - discovery-server
 
   notification:
     container_name: notification
@@ -131,14 +129,14 @@ services:
     ports:
       - "8086:8086"
     environment:
-      - SPRING_PROFILES_ACTIVE=docker
-      - SPRING_RABBITMQ_HOST=rabbitmq
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_RABBITMQ_HOST: rabbitmq
     networks:
       - spring
-      - postgres
     depends_on:
       - postgres
       - rabbitmq
+      - discovery-server
 
   customers:
     container_name: customers
@@ -148,14 +146,14 @@ services:
     ports:
       - "8082:8082"
     environment:
-      - SPRING_PROFILES_ACTIVE=docker
-      - SPRING_RABBITMQ_HOST=rabbitmq
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_RABBITMQ_HOST: rabbitmq
     networks:
       - spring
-      - postgres
     depends_on:
       - postgres
       - rabbitmq
+      - discovery-server
 
   fruad:
     container_name: fruad
@@ -165,29 +163,23 @@ services:
     ports:
       - "8084:8084"
     environment:
-      - SPRING_PROFILES_ACTIVE=docker
-      - SPRING_RABBITMQ_HOST=rabbitmq
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_RABBITMQ_HOST: rabbitmq
     networks:
       - spring
-      - postgres
     depends_on:
       - postgres
       - rabbitmq
+      - discovery-server
 
-  frontend:
-    image: frontend
-    build:
-      context: ../../ex-2024/frontend
-      dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
+
 
 networks:
   postgres:
-    driver: bridge
+    driver: bridgeneclient
   spring:
     driver: bridge
 
 volumes:
-  postgres:
   pgadmin:
+  postgres_data:

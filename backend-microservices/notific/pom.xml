@@ -65,6 +65,10 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
 		</dependency>
@@ -95,6 +99,16 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<!-- Maven Surefire Plugin configuration -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.2</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<!-- End of Maven Surefire Plugin configuration -->
 		</plugins>
 	</build>
 

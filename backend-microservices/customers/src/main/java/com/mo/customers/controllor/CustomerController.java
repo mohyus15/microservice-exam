@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @Slf4j
 @RestController
-@RequestMapping("api/customers")
+@RequestMapping("/api/customers")
 public class CustomerController {
     private final JwtService jwt;
     private final CustomerServices customerServices;
@@ -33,6 +33,7 @@ public class CustomerController {
         customerServices.CustomerRegister(customerRequest);
 
     }
+
 
 
     @GetMapping("/all")

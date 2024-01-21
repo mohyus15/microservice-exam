@@ -1,0 +1,18 @@
+
+
+{
+    "users": [
+      {
+        "username": "admin",
+        "password": "12345",
+        "roles": ["admin"]
+      },
+      {
+        "username": "mo",
+        "password": "12345",
+        "roles": ["user"]
+      }
+
+    ]
+  }
+  
