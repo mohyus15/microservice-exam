@@ -17,7 +17,7 @@ public class ShippingServer {
 
     public void addToAddress(ShippingRequest shippingRequest){
         Shipping result = new Shipping();
-        result.setUsername(shippingRequest.getUsername());
+        result.setEmail(shippingRequest.getEmail());
         result.setAddress(shippingRequest.getAddress());
         result.setCity(shippingRequest.getCity());
         result.setPostcode(shippingRequest.getPostcode());

@@ -1,4 +1,4 @@
-package com.mo.authserver.models;
+package com.mo.authusers.models;
 
 public enum Role {
   ROLE_ADMIN,

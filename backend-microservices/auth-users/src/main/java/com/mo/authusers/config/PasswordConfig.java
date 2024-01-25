@@ -1,4 +1,4 @@
-package com.mo.authserver.config;
+package com.mo.authusers.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

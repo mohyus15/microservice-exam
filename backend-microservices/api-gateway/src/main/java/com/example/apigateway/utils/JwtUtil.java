@@ -12,7 +12,7 @@ import java.util.Map;
 
 @Component
 public class JwtUtil {
-    public static final String SECRET = "67566B59703373367639792F423F4528482B4D6251655468576D5A71347437";
+    public static final String SECRET = "48a868a4042f634ac04a117f00a87202131dd7c46c4b32c4acb3edc5e15f4511";
     public void validateToken(final String token) {
         Jwts.parserBuilder().setSigningKey(getSignKey()).build().parseClaimsJws(token);
     }

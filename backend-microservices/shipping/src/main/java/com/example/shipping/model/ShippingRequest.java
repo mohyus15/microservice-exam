@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class ShippingRequest {
-    private String username;
+    private String email;
     private String address;
     private String city;
     private Integer postcode;

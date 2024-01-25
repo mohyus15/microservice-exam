@@ -1,8 +1,8 @@
-package com.mo.authserver.controllers;
-import com.mo.authserver.dto.JwtAuthenticationResponse;
-import com.mo.authserver.dto.SignInRequest;
-import com.mo.authserver.dto.SignUpRequest;
-import com.mo.authserver.services.AuthenticationService;
+package com.mo.authusers.controllers;
+import com.mo.authusers.dto.JwtAuthenticationResponse;
+import com.mo.authusers.services.AuthenticationService;
+import com.mo.authusers.dto.SignInRequest;
+import com.mo.authusers.dto.SignUpRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1")
 @RequiredArgsConstructor
 public class AuthenticationController {
+
 
     private final AuthenticationService authenticationService;
 

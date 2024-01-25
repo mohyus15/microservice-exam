@@ -1,11 +1,10 @@
-package com.mo.authserver.services;
-
-import com.mo.authserver.dto.JwtAuthenticationResponse;
-import com.mo.authserver.dto.SignInRequest;
-import com.mo.authserver.dto.SignUpRequest;
-import com.mo.authserver.models.Role;
-import com.mo.authserver.models.User;
-import com.mo.authserver.repositories.UserRepository;
+package com.mo.authusers.services;
+import com.mo.authusers.dto.JwtAuthenticationResponse;
+import com.mo.authusers.dto.SignInRequest;
+import com.mo.authusers.dto.SignUpRequest;
+import com.mo.authusers.models.Role;
+import com.mo.authusers.models.User;
+import com.mo.authusers.repositories.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;

@@ -1,4 +1,4 @@
-package com.mo.authserver.models;
+package com.mo.authusers.models;
 
 import jakarta.persistence.*;
 import lombok.*;

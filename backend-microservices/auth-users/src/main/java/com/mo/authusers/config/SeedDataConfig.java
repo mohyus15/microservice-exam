@@ -1,9 +1,9 @@
-package com.mo.authserver.config;
+package com.mo.authusers.config;
 
-import com.mo.authserver.models.Role;
-import com.mo.authserver.models.User;
-import com.mo.authserver.repositories.UserRepository;
-import com.mo.authserver.services.UserService;
+import com.mo.authusers.models.Role;
+import com.mo.authusers.models.User;
+import com.mo.authusers.repositories.UserRepository;
+import com.mo.authusers.services.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;

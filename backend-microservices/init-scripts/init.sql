@@ -2,5 +2,5 @@ CREATE DATABASE fraudster;
 CREATE DATABASE shipping;
 CREATE DATABASE notifications;
 CREATE DATABASE products;
-CREATE DATABASE customers;
 CREATE DATABASE orders;
+CREATE DATABASE users;

@@ -1,7 +1,7 @@
-package com.mo.authserver.config;
+package com.mo.authusers.config;
 
-import com.mo.authserver.filters.JwtAuthenticationFilter;
-import com.mo.authserver.services.UserService;
+import com.mo.authusers.filters.JwtAuthenticationFilter;
+import com.mo.authusers.services.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;

@@ -11,16 +11,24 @@
         <module name="discovery-server" />
         <module name="shipping" />
         <module name="api-gateway" />
+        <module name="auth-users" />
         <module name="orders" />
-        <module name="customers" />
         <module name="fruad" />
         <module name="products" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="auth" target="17" />
+      <module name="auth-server" target="17" />
+      <module name="customers" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api-gateway" options="-parameters" />
+      <module name="auth" options="-parameters" />
+      <module name="auth-server" options="-parameters" />
+      <module name="auth-users" options="-parameters" />
       <module name="customers" options="-parameters" />
       <module name="discovery-server" options="-parameters" />
       <module name="fruad" options="-parameters" />

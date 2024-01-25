@@ -1,4 +1,4 @@
-package com.mo.authusers.controllers;
+package com.mo.productsserver.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/v1/test")
+@RequestMapping("/api/products/test")
 public class TestController {
 
   @GetMapping("/anon")
@@ -15,10 +15,10 @@ public class TestController {
       return "everyone can see this";
   }
 
-  @GetMapping("/users")
+  @GetMapping("/product")
   @PreAuthorize("hasRole('USER')")
   public String usersEndPoint() {
-    return "ONLY users can see this";
+    return "ONLY users can see this products";
   }
 
   @GetMapping("/admins")

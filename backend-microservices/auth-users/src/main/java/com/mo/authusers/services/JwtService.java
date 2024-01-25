@@ -1,4 +1,4 @@
-package com.mo.authserver.services;
+package com.mo.authusers.services;
 
 import java.security.Key;
 import java.util.Date;

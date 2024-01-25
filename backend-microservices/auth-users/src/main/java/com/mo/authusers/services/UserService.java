@@ -1,9 +1,9 @@
-package com.mo.authserver.services;
+package com.mo.authusers.services;
 
 import java.time.LocalDateTime;
 
-import com.mo.authserver.models.User;
-import com.mo.authserver.repositories.UserRepository;
+import com.mo.authusers.models.User;
+import com.mo.authusers.repositories.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

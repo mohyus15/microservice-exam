@@ -78,3 +78,9 @@ spring:
           uri: lb://NOTIFICATION
           filters:
             - name: AuthenticationFilter
+        - id: auth-users
+          predicates:
+            - Path=/api/v1/**
+          uri: lb://AUTH-USERS
+          filters:
+            - name: AuthenticationFilter

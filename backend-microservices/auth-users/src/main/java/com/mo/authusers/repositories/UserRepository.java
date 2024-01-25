@@ -1,9 +1,9 @@
-package com.mo.authserver.repositories;
+package com.mo.authusers.repositories;
 
-import com.mo.authserver.models.User;
+import com.mo.authusers.models.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
-import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 

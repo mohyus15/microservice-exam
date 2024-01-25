@@ -13,12 +13,10 @@ public class RouteValidator {
             "/api/products",
             "/api/customers",
             "/api/orders",
-            "/api/customers/register",
-            "/api/customers/login",
-            "/api/customers/all",
+            "/api/v1/signup",
+            "/api/v1/signin",
             "/api/notifications",
-            "/api/shipping",
-            "/api/notification"
+            "/api/shipping"
 
     );
 

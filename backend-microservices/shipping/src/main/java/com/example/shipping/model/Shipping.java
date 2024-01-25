@@ -17,7 +17,7 @@ public class Shipping {
     @GeneratedValue(strategy = GenerationType.AUTO,
             generator = "shipping_id_sequence")
     private Long id;
-    private String username;
+    private String email;
     private String address;
     private String city;
     private Integer postcode;

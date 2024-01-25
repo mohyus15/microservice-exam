@@ -1,11 +1,10 @@
-package com.mo.authserver.filters;
+package com.mo.authusers.filters;
 
 import java.io.IOException;
 
-import com.mo.authserver.services.JwtService;
-import com.mo.authserver.services.UserService;
+import com.mo.authusers.services.JwtService;
+import com.mo.authusers.services.UserService;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;

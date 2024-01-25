@@ -1,4 +1,4 @@
-package com.mo.authserver.dto;
+package com.mo.authusers.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
