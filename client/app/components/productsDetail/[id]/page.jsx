@@ -36,6 +36,7 @@ const ProductDetail = ({ params }) => {
         price: product.price,
         brand: product.brand,
         category: product.category,
+        countInStock: product.countInStock
       };
 
       const userConfirmed = window.confirm(

@@ -31,6 +31,7 @@ function CartItems({ items }) {
                 <tr className="text-white">
                   <th className="py-2">image</th>
                   <th className="py-2">Price</th>
+                  <th className="py-2"> in stock</th>
                   <th className="py-2">Quantity</th>
                   <th className="py-2">buy</th>
                 </tr>
@@ -51,6 +52,12 @@ function CartItems({ items }) {
                     <td className="py-4">
                       <p className="text-gray-600">
                         <td className="py-4 text-gray-600">${item.price}</td>
+                      </p>
+                    </td>
+
+                    <td className="py-4">
+                      <p className="text-gray-600">
+                        <td className="py-4 text-gray-600">{item.countInStock}</td>
                       </p>
                     </td>
             

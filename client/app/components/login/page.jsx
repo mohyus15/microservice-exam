@@ -1,46 +1,36 @@
-'use client'
-
-import Link from 'next/link';
+"use client"
 import { useState } from 'react';
-import { redirect } from 'next/navigation';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const Login = () => {
+  const router = useRouter(); // Initialize router
   const [formData, setFormData] = useState({
-    username: '',
+    email: '',
     password: '',
   });
 
   const handleChange = (e) => {
+    // Update form data on input change
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent default form submission
 
-    const res = await fetch('http://localhost:8080/api/customers/login', {
-      method: 'POST',
-      body: JSON.stringify(formData),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    // Check if the credentials match the admin user
+    if (formData.email === 'admin@admin.com' && formData.password === 'password') {
+      localStorage.setItem('userLoggedIn', JSON.stringify({
+        firstName: 'admin',
+        lastName: 'admin',
+        email: 'admin@admin.com',
+      }));
 
-    if (res.ok) {
-      const user = await res.json();
-      const roles = user.roles || [];
-
-      if (roles.includes('admin')) {
-        redirect('/dashboard');
-        localStorage.setItem('user', JSON.stringify(user));
-      } else {
-        redirect('/CheckoutSteps');
-        localStorage.setItem('user', JSON.stringify(user));
-      }
-
+      router.push('/dashboard'); // Redirect to the dashboard page
     } else {
-      console.log('Bad credentials');
+      router.push('/components/CheckoutSteps'); // Redirect to the dashboard page
+
     }
- localStorage.setItem('user', JSON.stringify(user));
   };
 
   return (
@@ -54,12 +44,12 @@ const Login = () => {
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
       }}
     >
-      <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>Username</label>
+      <label style={{ display: 'block', marginBottom: '8px', fontWeight: 'bold' }}>Email</label>
       <input
         type="text"
-        id="username"
-        name="username"
-        value={formData.username}
+        id="email"
+        name="email"
+        value={formData.email}
         onChange={handleChange}
         style={{
           width: '100%',

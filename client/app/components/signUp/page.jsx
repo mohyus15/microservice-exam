@@ -1,48 +1,63 @@
-
-"use client"
+"use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-const SignUpHandle = async (formData) => {
-  const username = formData.get("username");
-  const email = formData.get("email");
-  const password = formData.get("password");
+const SignUp = () => {
+  const router = useRouter();
 
-  const productsObject = {
-    username,
-    email,
-    password,
-  };
+  const SignUpHandle = async (formData) => {
+    const firstName = formData.get("firstName");
+    const lastName = formData.get("lastName");
+    const email = formData.get("email");
+    const password = formData.get("password");
 
-  try {
-    const response = await fetch(
-      "http://localhost:8080/api/customers/register",
-      {
+    const admin = {
+      firstName:"admin",
+      lastName:"admin",
+      email:"admin@admin.com",
+      password:"password"
+    }
+    const productsObject = {
+      firstName,
+      lastName,
+      email,
+      password,
+  
+    };
+
+    try {
+      const response = await fetch("http://localhost:8080/api/v1/signup", {
         method: "POST",
         body: JSON.stringify(productsObject),
         headers: {
           "Content-Type": "application/json",
         },
+      });
+
+      if (response.ok) {
+        const user = await response.json();
+
+        // Save the token to local storage
+        localStorage.setItem("token", user.token);
+        
+        // Save the product information to local storage
+        localStorage.setItem("userLoggedIn", "true");
+        localStorage.setItem("productsObject", JSON.stringify(productsObject));
+        localStorage.setItem("admin", JSON.stringify(admin));
+
+
+        // Redirect to the login page
+        router.push("/components/login");
+      } else {
+        // Handle registration failure
+        console.error("Registration failed");
       }
-    );
-
-    if (response.ok) {
-      document.cookie = "userLoggedIn=true; path=/";
-
-      // Redirect to the login page
-      const router = useRouter();
-      router.push("/components/login");
-    } else {
-      // Handle registration failure
-      console.error("Registration failed");
+    } catch (error) {
+      console.error("Error during registration:", error);
     }
-  } catch (error) {
-    console.error("Error during registration:", error);
-  }
-};
+  };
 
-const SignUp = () => {
   return (
     <form
       onSubmit={(e) => {
@@ -61,26 +76,43 @@ const SignUp = () => {
       <label
         style={{ display: "block", marginBottom: "8px", fontWeight: "bold" }}
       >
-        username
+        First Name
       </label>
       <input
         type="text"
-        id="username"
-        name="username"
+        id="firstName"
+        name="firstName"
         style={{
           width: "100%",
           padding: "8px",
           marginBottom: "16px",
           borderRadius: "4px",
           border: "1px solid #ccc",
-          color:"black",
+          color: "black",
         }}
       />
-
       <label
         style={{ display: "block", marginBottom: "8px", fontWeight: "bold" }}
       >
-        email
+        Last Name
+      </label>
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        style={{
+          width: "100%",
+          padding: "8px",
+          marginBottom: "16px",
+          borderRadius: "4px",
+          border: "1px solid #ccc",
+          color: "black",
+        }}
+      />
+      <label
+        style={{ display: "block", marginBottom: "8px", fontWeight: "bold" }}
+      >
+        Email
       </label>
       <input
         type="text"
@@ -92,7 +124,7 @@ const SignUp = () => {
           marginBottom: "16px",
           borderRadius: "4px",
           border: "1px solid #ccc",
-          color:"black",
+          color: "black",
         }}
       />
 
@@ -100,7 +132,7 @@ const SignUp = () => {
         htmlFor="password"
         style={{ display: "block", marginBottom: "8px", fontWeight: "bold" }}
       >
-        password
+        Password
       </label>
       <input
         type="password"
@@ -112,7 +144,7 @@ const SignUp = () => {
           marginBottom: "16px",
           borderRadius: "4px",
           border: "1px solid #ccc",
-          color:"black",
+          color: "black",
         }}
       />
       <button
@@ -124,12 +156,11 @@ const SignUp = () => {
           borderRadius: "4px",
           border: "none",
           cursor: "pointer",
-    
         }}
       >
         Sign up
       </button>
-      <Link href="./login"> login if you have an account</Link>
+      <Link href="./login"> Login if you have an account</Link>
     </form>
   );
 };
