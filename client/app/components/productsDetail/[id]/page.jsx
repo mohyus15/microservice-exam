@@ -38,21 +38,24 @@ const ProductDetail = ({ params }) => {
         category: product.category,
         countInStock: product.countInStock
       };
-
+  //
       const userConfirmed = window.confirm(
         'Do you want to add this item to the cart?'
       );
-
+  
       if (userConfirmed) {
         setCartItems([...cartItems, newItem]);
         updateLocalStorage([...cartItems, newItem]);
         window.alert('Item added to cart!');
         goToCart();
+        // Reload the page after addToCart
+        window.location.reload();
       } else {
         window.alert('Item was not added to the cart.');
       }
     }
   };
+  
 
   const updateLocalStorage = (items) => {
     if (typeof window !== 'undefined' && window.localStorage) {

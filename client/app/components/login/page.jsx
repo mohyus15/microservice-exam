@@ -1,4 +1,5 @@
 "use client"
+"use client"
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -18,6 +19,27 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent default form submission
 
+    try {
+      const productsObjectString = localStorage.getItem('productsObject');
+
+      if (productsObjectString) {
+        const productsObject = JSON.parse(productsObjectString);
+        const storedEmail = productsObject.email;
+        const storedPassword = productsObject.password;
+
+        if (formData.email === storedEmail && formData.password === storedPassword) {
+          router.push('/components/CheckoutSteps'); // Redirect to the dashboard page
+          return;
+        } else {
+          throw new Error("Sorry, you are not logged in");
+        }
+      } else {
+        throw new Error("No user data found");
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+
     // Check if the credentials match the admin user
     if (formData.email === 'admin@admin.com' && formData.password === 'password') {
       localStorage.setItem('userLoggedIn', JSON.stringify({
@@ -28,8 +50,7 @@ const Login = () => {
 
       router.push('/dashboard'); // Redirect to the dashboard page
     } else {
-      router.push('/components/CheckoutSteps'); // Redirect to the dashboard page
-
+      console.error("Invalid credentials for admin");
     }
   };
 
@@ -100,3 +121,4 @@ const Login = () => {
 };
 
 export default Login;
+
