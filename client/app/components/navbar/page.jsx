@@ -10,7 +10,6 @@ function Navbar() {
   const route = useRouter()
 
   useEffect(() => {
-    // Check if user is logged in
     const productsObjectString = localStorage.getItem('productsObject');
     if (productsObjectString) {
       const productsObject = JSON.parse(productsObjectString);
@@ -18,7 +17,7 @@ function Navbar() {
       setUserEmail(storedEmail);
     }
 
-    // Load cart items from localStorage
+
     const cartItemsString = localStorage.getItem('cartItems');
     if (cartItemsString) {
       const parsedCartItems = JSON.parse(cartItemsString);
@@ -28,7 +27,6 @@ function Navbar() {
   }, []);
 
   const handleLogout = () => {
-    // Implement logout functionality (clear user data from localStorage)
     localStorage.removeItem('productsObject');
     setUserEmail(null);
     route.push("/")
@@ -50,7 +48,7 @@ function Navbar() {
           </Link>
         </div>
 
-        {/* Navigation Links */}
+
         <div className="flex-grow basis-[100%] items-center lg:!flex lg:basis-auto">
           <ul className="list-style-none mr-auto flex flex-col pl-0 lg:flex-row">
             <li className="mr-4">
@@ -59,7 +57,7 @@ function Navbar() {
           </ul>
         </div>
 
-        {/* User Email or Logout Link */}
+  
         {userEmail ? (
           <div className="mb-4 ml-2 mr-5 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0">
             <p>{userEmail}</p>

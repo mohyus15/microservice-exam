@@ -4,7 +4,7 @@ function DashbortPage() {
     <div className={styles.wrapper}>
       <div className={styles.main}>
         <div className={styles.cards}>
-       hello dashboard
+          hello dashboard
         </div>
       </div>
     </div>

@@ -1,5 +1,4 @@
 "use client"
-"use client"
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -42,7 +41,7 @@ const Login = () => {
 
     // Check if the credentials match the admin user
     if (formData.email === 'admin@admin.com' && formData.password === 'password') {
-      localStorage.setItem('userLoggedIn', JSON.stringify({
+      localStorage.setItem('admin', JSON.stringify({
         firstName: 'admin',
         lastName: 'admin',
         email: 'admin@admin.com',

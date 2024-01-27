@@ -48,7 +48,6 @@ const ProductDetail = ({ params }) => {
         updateLocalStorage([...cartItems, newItem]);
         window.alert('Item added to cart!');
         goToCart();
-        // Reload the page after addToCart
         window.location.reload();
       } else {
         window.alert('Item was not added to the cart.');

@@ -16,7 +16,7 @@ const Notification = () => {
     };
 
     fetchData();
-  }, []); // Empty dependency array ensures useEffect runs only once on component mount
+  }, []);
 
   return (
     <div className="container mx-auto mt-8">

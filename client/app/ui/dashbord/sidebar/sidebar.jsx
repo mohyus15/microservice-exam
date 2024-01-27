@@ -1,8 +1,8 @@
-"use client"
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import MenuLink from './menuLink/menuLink';
-import styles from './sidebar.module.css';
+'use client'
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import MenuLink from "./menuLink/menuLink";
+import styles from "./sidebar.module.css";
 import {
   MdDashboard,
   MdSupervisedUserCircle,
@@ -11,9 +11,10 @@ import {
   MdOutlineSettings,
   MdHelpCenter,
   MdLogout,
-} from 'react-icons/md';
-import { useRouter } from 'next/navigation';
+} from "react-icons/md";
+import { useRouter } from "next/navigation";
 
+// Define your menuItems
 const menuItems = [
   {
     title: "Pages",
@@ -39,8 +40,8 @@ const menuItems = [
         icon: <MdAttachMoney />,
       },
       {
-        title: "Notification",
-        path: "/dashboard/notification",
+        title: "notification",
+        path: "/dashboard/notifcation",
         icon: <MdAttachMoney />,
       },
     ],
@@ -53,21 +54,17 @@ const menuItems = [
         path: "/dashboard/settings",
         icon: <MdOutlineSettings />,
       },
-      {
-        title: "Help",
-        path: "/dashboard/help",
-        icon: <MdHelpCenter />,
-      },
     ],
   },
 ];
+
 
 const Sidebar = () => {
   const route = useRouter();
   const [userEmail, setUserEmail] = useState(null);
 
   useEffect(() => {
-    const adminObjectString = localStorage.getItem('admin');
+    const adminObjectString = localStorage.getItem("admin");
     if (adminObjectString) {
       const adminObject = JSON.parse(adminObjectString);
       const storedEmail = adminObject.email;
@@ -75,29 +72,27 @@ const Sidebar = () => {
     }
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem('admin');
+  const signOut = async (e) => {
+    e.preventDefault();
+    localStorage.removeItem("admin");
     setUserEmail(null);
     route.push("/");
   };
-
   return (
     <div className={styles.container}>
-      {userEmail && (
-        <div className={styles.user}>
-          <Image
-            className={styles.userImage}
-            src="/noavatar.png"
-            alt=""
-            width="50"
-            height="50"
-          />
-          <div className={styles.userDetail}>
-            <span>Email: {userEmail}</span>
-            <span>Admin</span>
-          </div>
+      <div className={styles.user}>
+        <Image
+          className={styles.userImage}
+          src="/noavatar.png"
+          alt=""
+          width="50"
+          height="50"
+        />
+        <div className={styles.userDetail}>
+          <span>{userEmail}</span>
+          <span>Admin</span>
         </div>
-      )}
+      </div>
       <ul className={styles.list}>
         {menuItems.map((menu) => (
           <li key={menu.title}>
@@ -108,21 +103,15 @@ const Sidebar = () => {
           </li>
         ))}
       </ul>
-      {userEmail && (
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleLogout();
-          }}
-        >
-          <button type="submit" className={styles.logout}>
-            <MdLogout />
-            Logout
-          </button>
-        </form>
-      )}
+      <form onSubmit={signOut}>
+        <button type="submit" className={styles.logout}>
+          <MdLogout />
+          Logout
+        </button>
+      </form>
     </div>
   );
 };
 
+// Export the Sidebar component
 export default Sidebar;
