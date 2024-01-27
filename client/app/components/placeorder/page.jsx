@@ -1,21 +1,26 @@
 "use client"
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 const PlaceOrderAndSubmit = () => {
   const [shippingDetails, setShippingDetails] = useState({});
   const [cartItems, setCartItems] = useState([]);
   const [orderNumber, setOrderNumber] = useState("10022254545454001");
-  const [orderEmail, setOrderEmail] = useState("m2222@hotmail.com");
+  const [orderEmail, setOrderEmail] = useState('');
+  const route = useRouter()
 
   useEffect(() => {
     const storedShippingDetails = JSON.parse(localStorage.getItem('shippingDetails')) || {};
     setShippingDetails(storedShippingDetails);
 
     const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
     setCartItems(storedCartItems);
     if (storedShippingDetails.email) {
       setOrderEmail(storedShippingDetails.email);
     }
+
+    console.log(cartItems.qty)
   }, []);
 
   const generateOrderNumber = () => {
@@ -44,13 +49,11 @@ const PlaceOrderAndSubmit = () => {
     } catch (error) {
       console.error('Error submitting shipping details:', error);
     }
+
   };
 
   const handleSubmit = async () => {
-    // Submit shipping details first
     await submitShippingDetails();
-
-    // Continue with order submission
     const orderNumber = generateOrderNumber();
     setOrderNumber(orderNumber);
 
@@ -61,7 +64,7 @@ const PlaceOrderAndSubmit = () => {
         image: item.image,
         brand: item.brand,
         category: item.category,
-        countInStock: item.countInStock,
+        countInStock: item.qty,
         description: item.description,
         price: item.price,
       })),
@@ -92,6 +95,9 @@ const PlaceOrderAndSubmit = () => {
       localStorage.removeItem('shippingDetails');
       localStorage.removeItem('cartItems');
     }
+    route.push("/")
+
+ 
   };
 
   return (
@@ -113,7 +119,7 @@ const PlaceOrderAndSubmit = () => {
                 <img src={item.image} alt={item.name} className="max-w-full max-h-32 mb-2" />
                 <p>Brand: {item.brand}</p>
                 <p>Category: {item.category}</p>
-                <p>Count In Stock: {item.countInStock}</p>
+                <p>Count In Stock: {item.qty}</p>
                 <p>Description: {item.description}</p>
                 <p>Price: {item.price}</p>
               </div>
