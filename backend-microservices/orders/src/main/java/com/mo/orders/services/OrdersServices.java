@@ -28,11 +28,7 @@ public class OrdersServices {
         orderRepository.save(order);
 
         producer.publishMessage(
-                "new order are send to rabbitmq-",
-                 order,
-                "order_exchange",
-                "order_routing_key"
-        );
+               order);
 
 
     }

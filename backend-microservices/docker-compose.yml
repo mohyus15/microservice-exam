@@ -153,6 +153,13 @@ services:
       - postgres
       - rabbitmq
       - discovery-server
+  frontend:
+    image: frontend
+    build:
+      context: ./../client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
   auth-users:
     container_name: auth-users
     build:
@@ -167,6 +174,8 @@ services:
     depends_on:
       - postgres
       - discovery-server
+
+
 networks:
   postgres:
     driver: bridgeneclient
