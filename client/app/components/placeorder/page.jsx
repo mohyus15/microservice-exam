@@ -108,7 +108,7 @@ const PlaceOrderAndSubmit = () => {
         <p>City: {shippingDetails.city}</p>
         <p>Country: {shippingDetails.country}</p>
         <p>Postcode: {shippingDetails.postcode}</p>
-        <p>Email: {shippingDetails.username}</p>
+        <p>Email: {shippingDetails.email}</p>
 
         <h2 className="text-2xl font-bold mt-4">Place Order</h2>
         {cartItems.length > 0 && (
@@ -125,7 +125,7 @@ const PlaceOrderAndSubmit = () => {
               </div>
             ))}
             <p>Order Number: {orderNumber}</p>
-            <p>Email for Order: {shippingDetails.username}</p>
+            <p>Email for Order: {shippingDetails.email}</p>
           </div>
         )}
       </div>

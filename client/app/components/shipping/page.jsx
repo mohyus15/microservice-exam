@@ -25,7 +25,7 @@ const Shipping = () => {
       city,
       postcode,
       country,
-      username: productsObject.email, 
+      email: productsObject.email,
     };
   
     localStorage.setItem('shippingDetails', JSON.stringify(shippingDetails));

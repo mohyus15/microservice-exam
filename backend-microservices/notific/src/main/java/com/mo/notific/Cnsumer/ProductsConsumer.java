@@ -19,21 +19,20 @@ public class ProductsConsumer {
         this.notificationRepository = notificationRepository;
     }
 
-    @RabbitListener(queues = "${spring.rabbitmq.template.default-receive-queue}")
+    @RabbitListener(queues = "${spring.rabbitmq.listener.simple.default-receive-queue}")
     public void consume(NotificationRequest notificationRequest) {
-        LOGGER.info("Customer has ordered products. Request received: {}", notificationRequest);
+        LOGGER.info("Received notification request: {}", notificationRequest);
 
-        String orderNumber = notificationRequest.getOrderNumber();
-        String email = notificationRequest.getEmail();
+        // Print specific fields if needed
+        LOGGER.info("Order Number: {}", notificationRequest.getOrderNumber());
+        LOGGER.info("Email: {}", notificationRequest.getEmail());
 
+        // Save to database
         Notification notification = new Notification();
-        notification.setSetOrderNumber(orderNumber);
-        notification.setEmail(email);
+        notification.setSetOrderNumber(notificationRequest.getOrderNumber());
+        notification.setEmail(notificationRequest.getEmail());
         notification.setSentAt(LocalDateTime.now());
         notificationRepository.save(notification);
-        LOGGER.info("Notification saved to the database: {}", notification);
+        LOGGER.info("Notification saved to the database: {} + ", notification);
     }
-
 }
-
-
