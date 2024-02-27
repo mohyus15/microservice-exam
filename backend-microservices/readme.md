@@ -1,17 +1,18 @@
 1: Pull all these images from Docker Hub
-docker pull mohyus15/backend-microservices-auth-users
-docker pull mohyus15/backend-microservices-fruad
-docker pull mohyus15/backend-microservices-notification
-docker pull mohyus15/backend-microservices-orders
-docker pull mohyus15/backend-microservices-shipping
-docker pull mohyus15/backend-microservices-products
-docker pull mohyus15/backend-microservices-api-gateway
+docker pull mohyus15/frontend:latest
+docker pull mohyus15/backend-microservices-orders:latest
+docker pull mohyus15/backend-microservices-auth-users:latest
+docker pull mohyus15/backend-microservices-fraud:latest
+docker pull mohyus15/backend-microservices-shipping:latest
+docker pull mohyus15/backend-microservices-notification:latest
+docker pull mohyus15/backend-microservices-products:latest
+docker pull mohyus15/backend-microservices-api-gateway:latest
+docker pull mohyus15/backend-microservices-discovery-server:latest
+docker pull mohyus15/openzipkin/zipkin:latest
 docker pull mohyus15/postgres:latest
+docker pull mohyus15/dpage/pgadmin4:latest
 docker pull mohyus15/rabbitmq:3.13.0-rc.4-management-alpine
-docker pull mohyus15/pgadmin4:latest
-docker pull mohyus15/frontend
-docker pull mohyus15/zipkin:latest
-docker pull mohyus15/backend-microservices-discovery-server
+
 2: Run the following command to start Docker compose with rebuilding
 docker-compose up -d --build
 3:Here's how the website works:

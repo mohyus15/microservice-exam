@@ -10,10 +10,10 @@
         <module name="notific" />
         <module name="discovery-server" />
         <module name="shipping" />
+        <module name="fraud" />
         <module name="api-gateway" />
         <module name="auth-users" />
         <module name="orders" />
-        <module name="fruad" />
         <module name="products" />
       </profile>
     </annotationProcessing>
@@ -31,7 +31,7 @@
       <module name="auth-users" options="-parameters" />
       <module name="customers" options="-parameters" />
       <module name="discovery-server" options="-parameters" />
-      <module name="fruad" options="-parameters" />
+      <module name="fraud" options="-parameters" />
       <module name="notific" options="-parameters" />
       <module name="orders" options="-parameters" />
       <module name="products" options="-parameters" />
