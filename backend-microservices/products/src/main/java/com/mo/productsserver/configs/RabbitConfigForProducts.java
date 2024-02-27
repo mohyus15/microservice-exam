@@ -1,4 +1,3 @@
-
 package com.mo.productsserver.configs;
 
 import lombok.Getter;
@@ -33,16 +32,16 @@ public class RabbitConfigForProducts {
         return new TopicExchange(exchange);
     }
     @Bean
-   public Binding binding(){
+    public Binding binding(){
         return BindingBuilder.bind(productqueue())
                 .to(exchange())
                 .with(productsRouterKey);
-   }
-   @Bean
-   public MessageConverter converter(){
+    }
+    @Bean
+    public MessageConverter converter(){
         return new Jackson2JsonMessageConverter();
-   }
-   @Bean
+    }
+    @Bean
     public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
         RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
         rabbitTemplate.setMessageConverter(converter());
