@@ -21,12 +21,14 @@ public class OrderController {
 
     @PostMapping
     public void createOrders(@RequestBody OrderRequest orderRequest) {
+        log.info("new orders is added {} ", orderRequest);
        ordersServices.createOrder(orderRequest);
 
     }
 
     @GetMapping
     public List<Order> getOrders(){
+        log.info("new orders is added");
         return ordersServices.getOrders();
     }
 

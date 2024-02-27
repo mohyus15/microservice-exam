@@ -24,6 +24,7 @@ public class productsController {
     }
     @GetMapping
     public List<Products> getProducts(){
+        log.info("all products are here");
         return productsServices.getProducts();
     }
 

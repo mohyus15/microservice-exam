@@ -5,12 +5,14 @@ import com.mo.authusers.services.AuthenticationService;
 import com.mo.authusers.dto.SignInRequest;
 import com.mo.authusers.dto.SignUpRequest;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
+@Slf4j
 @RequiredArgsConstructor
 public class AuthenticationController {
 
@@ -19,6 +21,7 @@ public class AuthenticationController {
 
     @PostMapping("/signup")
     public JwtAuthenticationResponse signup(@RequestBody SignUpRequest request) {
+        log.info("new user is created{} ", request);
         return authenticationService.signup(request);
     }
 
@@ -29,6 +32,7 @@ public class AuthenticationController {
 
     @GetMapping("/users")
     public List<User> getAllUsers() {
+        log.info("new all are fetch ");
         return authenticationService.getAllUsers();
     }
 }

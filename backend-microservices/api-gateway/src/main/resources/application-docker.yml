@@ -2,6 +2,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://discovery-server:8761/eureka/
+management:
+  zipkin:
+    tracing:
+      endpoint: http://zipkin:9411
 
 logging:
   level:

@@ -20,13 +20,14 @@ public class NotificationsController {
 
     @PostMapping
         public void createNotification(@RequestBody NotificationRequest notificationRequest) {
-            log.info("new order is created.......................... ");
+        log.info("new message have send{} ", notificationRequest);
            notificationServer.saveNotification(notificationRequest);
 
         }
 
     @GetMapping(path = "{id}")
     public void getNotificationById(@PathVariable("id") Long id) {
+        log.info("new message have send{}");
         notificationServer.getNotification(id);
     }
 
