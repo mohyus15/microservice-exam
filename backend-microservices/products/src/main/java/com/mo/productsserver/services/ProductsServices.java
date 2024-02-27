@@ -22,14 +22,13 @@ public class ProductsServices {
         System.out.println(products1);
         productRepository.save(products1);
 
-        Products products = Products.builder()
-                .name(productsRequest.getName())
-                .brand(productsRequest.getBrand())
-                .image(productsRequest.getImage())
-                .category(productsRequest.getCategory())
-                .countInStock(productsRequest.getCountInStock())
-                .description(productsRequest.getDescription())
-                .price(productsRequest.getPrice()).build();
+        Products products = new Products();
+         products.setName(productsRequest.getName());
+         products.setBrand(productsRequest.getBrand());
+         products.setImage(productsRequest.getImage());
+         products.setCategory(productsRequest.getCategory());
+         products.setDescription(productsRequest.getDescription());
+         products.setPrice(productsRequest.getPrice());
         productRepository.save(products);
         producer.publishMessage(
                 products);

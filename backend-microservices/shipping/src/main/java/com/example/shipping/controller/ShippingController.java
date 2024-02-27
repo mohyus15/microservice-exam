@@ -4,7 +4,6 @@ import com.example.shipping.model.Shipping;
 import com.example.shipping.model.ShippingRequest;
 import com.example.shipping.services.ShippingServer;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,10 +24,9 @@ public class ShippingController {
 
     }
     @GetMapping()
-    //@PreAuthorize("hasAuthority('ADMIN')")
     public List<Shipping> shippingAddresses(){
-        log.info("all shipping address are here");
-       return shippingServer.gallAddress();
-
+        log.info("all shipping addresses are here");
+        return shippingServer.gallAddress();
     }
+
 }

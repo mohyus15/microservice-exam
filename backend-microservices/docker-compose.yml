@@ -9,10 +9,13 @@ services:
       - "8761:8761"
     environment:
       SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - zipkin
     networks:
       - spring
+
   zipkin:
-    image: openzipkin/zipkin:latest
+    image: ghcr.io/openzipkin/zipkin-slim:${TAG:-latest}
     container_name: zipkin
     ports:
       - "9411:9411"
@@ -28,10 +31,12 @@ services:
       - "8080:8080"
     depends_on:
       - discovery-server
+      - zipkin
     environment:
       SPRING_PROFILES_ACTIVE: docker
     networks:
       - spring
+
 
   rabbitmq:
     image: rabbitmq:3.13.0-rc.4-management-alpine

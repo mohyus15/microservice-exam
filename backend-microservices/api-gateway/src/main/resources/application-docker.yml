@@ -6,6 +6,9 @@ management:
   zipkin:
     tracing:
       endpoint: http://zipkin:9411
+  tracing:
+    sampling:
+      probability: 1.0
 
 logging:
   level:
@@ -35,65 +38,3 @@ server:
 spring:
   application:
     name: api-gateway
-zipkin:
-  base-url: http://localhost:9411
-  management:
-    tracing:
-      sleuth:
-        sampler:
-          probability: 1.0
-
-
-
-
-  cloud:
-    gateway:
-      globalcors:
-        cors-configurations:
-          '[/**]':
-            allowedOrigins: "http://localhost:3000"
-            allowedMethods:
-              - GET
-              - POST
-              - PUT
-              - DELETE
-            allowedHeaders:
-              - "*"
-            allowCredentials: false
-      routes:
-        - id: notification
-          predicates:
-            - Path=/api/notifications/**
-          uri: lb://NOTIFICATION
-          filters:
-            - name: AuthenticationFilter
-        - id: products
-          predicates:
-            - Path=/api/products/**
-          uri: lb://PRODUCTS
-          filters:
-            - name: AuthenticationFilter
-        - id: customers
-          predicates:
-            - Path=/api/customers/**
-          uri: lb://CUSTOMERS
-          filters:
-            - name: AuthenticationFilter
-        - id: orders
-          predicates:
-            - Path=/api/orders/**
-          uri: lb://ORDERS
-          filters:
-            - name: AuthenticationFilter
-        - id: shipping
-          predicates:
-            - Path=/api/shipping/**
-          uri: lb://SHIPPING
-          filters:
-            - name: AuthenticationFilter
-        - id: auth-users
-          predicates:
-            - Path=/api/v1/**
-          uri: lb://AUTH-USERS
-          filters:
-            - name: AuthenticationFilter

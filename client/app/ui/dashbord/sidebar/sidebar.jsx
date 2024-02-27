@@ -34,6 +34,12 @@ const menuItems = [
         path: "/dashboard/products",
         icon: <MdShoppingBag />,
       },
+
+      {
+        title: "shipping",
+        path: "/dashboard/shipping",
+        icon: <MdShoppingBag />,
+      },
       {
         title: "Orders",
         path: "/dashboard/orders",
