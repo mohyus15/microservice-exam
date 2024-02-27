@@ -15,6 +15,7 @@ docker pull mohyus15/rabbitmq:3.13.0-rc.4-management-alpine
 
 2: Run the following command to start Docker compose with rebuilding
 docker-compose up -d --build
+docker-compose up -d     
 3:Here's how the website works:
 When users land on the homepage, they select a product.
 The selected product takes them to the project details page where they can choose the quantity.
