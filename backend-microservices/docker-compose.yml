@@ -145,9 +145,9 @@ services:
       - rabbitmq
       - discovery-server
   fruad:
-    container_name: fruad
+    container_name: fraud
     build:
-      context: ./fruad
+      context: ./fraud
       dockerfile: Dockerfile
     ports:
       - "8084:8084"

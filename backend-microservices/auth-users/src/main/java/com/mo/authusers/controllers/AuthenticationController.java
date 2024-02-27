@@ -1,13 +1,13 @@
 package com.mo.authusers.controllers;
 import com.mo.authusers.dto.JwtAuthenticationResponse;
+import com.mo.authusers.models.User;
 import com.mo.authusers.services.AuthenticationService;
 import com.mo.authusers.dto.SignInRequest;
 import com.mo.authusers.dto.SignUpRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -25,5 +25,10 @@ public class AuthenticationController {
     @PostMapping("/signin")
     public JwtAuthenticationResponse signin(@RequestBody SignInRequest request) {
         return authenticationService.signin(request);
+    }
+
+    @GetMapping("/users")
+    public List<User> getAllUsers() {
+        return authenticationService.getAllUsers();
     }
 }

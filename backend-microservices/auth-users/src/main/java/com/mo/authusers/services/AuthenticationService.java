@@ -1,5 +1,4 @@
 package com.mo.authusers.services;
-import com.mo.authusers.FraudCheckResponse;
 import com.mo.authusers.dto.JwtAuthenticationResponse;
 import com.mo.authusers.dto.SignInRequest;
 import com.mo.authusers.dto.SignUpRequest;
@@ -17,6 +16,8 @@ import org.springframework.web.client.RestTemplate;
 
 
 import lombok.RequiredArgsConstructor;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -40,6 +41,8 @@ public class AuthenticationService {
 
         user = userService.save(user);
 
+        /*
+
      FraudCheckResponse fraudCheckResponse = restTemplate.getForObject("http://FRAUD:8084/api/fraud/{customerId}",
                FraudCheckResponse.class, user.getId());
 
@@ -47,6 +50,8 @@ public class AuthenticationService {
         if (fraudCheckResponse.isFraudster()) {
             throw new IllegalStateException("this is a fraudster");
         }
+
+         */
 
 
         var jwt = jwtService.generateToken(user);
@@ -63,4 +68,7 @@ public class AuthenticationService {
         return JwtAuthenticationResponse.builder().token(jwt).build();
     }
 
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
 }
