@@ -1,46 +1,39 @@
-Guidelines to my application
+Guidelines for my Application
+These are the servers and their respective ports used in my application:
 
-this is the servers and their port I have in application 
-products: 8081
-orders: 8085
-notification: 8086
-shipping: 8087
-fraud: 8084
-auth-users : 8089
-discovery-server: 8761
-api-gateway: 8080 
-postgres: 5432 using in docker 
-frontend: 3000
+Products: 8081
+Orders: 8085
+Notification: 8086
+Shipping: 8087
+Fraud: 8084
+Auth-Users: 8089
+Discovery Server: 8761
+API Gateway: 8080
+Postgres: 5432 (used in Docker)
+Frontend: 3000
 Zipkin: 9411
-pgadmin: 5050
-beside all those servers i am using openfeign 
+Pgadmin: 5050
+In addition to these servers, I am also utilizing OpenFeign.
 
+1. Starting Docker Compose:
+To start Docker Compose, run the following command:
 
-
-
-
-1: Run the following command to start Docker compose using docker see the m
-docker compose up -d build
 docker-compose up -d
+docker-compose up -d --build
 
-3:Here is how my application works (Let me remind you of my assignment requirements):
-When users land on the homepage, they select a product.
-The selected product takes them to the project details page where they can choose the quantity.
-At the top right of the page, there's a shopping cart icon. Clicking on it reveals the shopping cart.
-Users need to register as a user if they haven't already. Once registered, their credentials are saved in the browser's local storage.
-After these steps, users are redirected to the shipping page, which operates on its own server.
-Finally, they reach the place order page where they can review shipping details and order information before submitting the order.
-4:The main purpose of this project is to create a web application using microservices.
-Please note that the frontend is not well-built and some pages lack proper protection.
-i have add shipping server which haven mention arbeidskrav, i need so application have enough server and to learn more microservices,
-the shipping server does not use message queues. Please provide your address (including postal code and city), 
-as well as the email associated with your current logged-in account.
+2. Application Workflow:
+Here's how my application functions, as per the assignment requirements:
+
+Users land on the homepage and select a product.
+They are then directed to the product details page to select the quantity.
+A shopping cart icon at the top right corner reveals the shopping cart upon clicking.
+Users must register if they haven't already. Once registered, their credentials are stored in the browser's local storage.
+After registration, users are redirected to the shipping page, operating on a separate server.
+Finally, users reach the place order page where they can review shipping details and order information before submitting the order.
 
 
-
-The purpose of presenting this data is that sometimes the frontend page fails to display the products. 
-While I have a command line for each server to execute the data within, 
-if the frontend works properly, there is no need to  Postman.
+3. Application Purpose:
+The main purpose of this project is to develop a web application using microservices. Note that while the frontend is functional, some pages lack proper protection. The addition of the shipping server was necessary for both the assignment requirements and to further explore microservices architecture. It's important to mention that the shipping server does not utilize message queues.
 
 products server POST: http://localhost:8080/api/products  
 {
@@ -90,12 +83,17 @@ products server POST: http://localhost:8080/api/products
 "postcode": 98633,
 "country": "Norway"
 }
-admin crendetails:
-email: admin@admin.com
-password: password
 
-this admin dashboard, the admin can create  products, review the orders, shippin , notification and users.
 
+4. Admin Dashboard:
+Admin credentials:
+
+Email: admin@admin.com
+Password: password
+The admin dashboard allows administrators to manage products, review orders, shipping, notifications, and users.
+
+Images:
+Here are screenshots illustrating various aspects of the application:
 ![Screenshot 2024-02-28 at 14 58 10](https://github.com/mohyus15/microservice-exam/assets/94177387/e8035ab5-9c6f-4bf2-acb4-792dd767ef6d)
 
 front page where the user will  start when application is started, and user will select products.
@@ -165,7 +163,8 @@ have push in dockerhub cloud as you can see the images.
 
 
 
-this is the all the images have pushed to dockerhub
+Docker Operations:
+I have pushed all Docker images to DockerHub cloud. Here are the commands used for tagging and pushing the images:
  docker tag b7ee0076f98d mohyus15/frontend:latest
  docker tag 673b4909644c mohyus15/backend-microservices-orders:latest
  docker tag edd1d7207574 mohyus15/backend-microservices-auth-users:latest
@@ -212,8 +211,6 @@ docker pull mohyus15/openzipkin/zipkin:latest
 docker pull mohyus15/postgres:latest
 docker pull mohyus15/dpage/pgadmin4:latest
 docker pull mohyus15/rabbitmq:3.13.0-rc.4-management-alpine
-
-
 
 
 ![Screenshot 2024-![Screenshot 2024-02-28 at 14 36 52](https://github.com/mohyus15/microservice-exam/assets/94177387/eb483ab9-0298-49b6-b1f8-9ae32a6349bb)
