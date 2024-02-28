@@ -1,6 +1,7 @@
 Guidelines for my Application
-These are the servers and their respective ports used in my application:
 
+
+These are the servers and their respective ports used in my application:
 Products: 8081
 Orders: 8085
 Notification: 8086
