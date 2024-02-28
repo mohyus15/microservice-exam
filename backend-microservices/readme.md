@@ -97,19 +97,26 @@ email: admin@admin.com
 password: password
 
 this admin dashboard, the admin can create create products, reviwe the orders, shippin ´, notification,
+
 ![Screenshot 2024-02-28 at 14 58 10](https://github.com/mohyus15/microservice-exam/assets/94177387/e8035ab5-9c6f-4bf2-acb4-792dd767ef6d)
 
 front page where the user will  when application is started, and user will select products.
+
 ![Screenshot 2024-02-28 at 15 56 20](https://github.com/mohyus15/microservice-exam/assets/94177387/57825ade-42e3-48c7-b2b2-da03095251c4)
 this is the next page where user will redirect to that products detal to selct qty for this 
+
 ![Screenshot 2024-02-28 at 15 58 34](https://github.com/mohyus15/microservice-exam/assets/94177387/65e2c670-fef8-4c96-8297-b54d644bb5b0)
 ![Screenshot 2024-02-28 at 16 06 34](https://github.com/mohyus15/microservice-exam/assets/94177387/b3e17629-27bc-4782-8026-3a18b63efd73)
+
 After this, you will be redirected to the user registration page. If you have already registered, you can see your email displayed at the top right corner.
 Your user data will be securely stored in the database with encryption, 
 and the password will be hashed. Additionally, your user information will be stored locally using localStorage.
+
 ![Screenshot 2024-02-28 at 16 17 46](https://githu![Screenshot 2024-02-28 at 16 18 29](https://github.com/mohyus15/microservice-exam/assets/94177387/9ae4ca00-860a-413d-a709-d75b006e6bd1)
 b.com/mohyus15/microservice-exam/assets/94177387/e7a8c9dc-40f9-4131-a2d1-868032b29e16)
+
 finaly will arrive this page where will see the order summary, before redirect to home page
+
 ![Screenshot 2024-02-28 at 16 18 45](https://github.com/mohyus15/microservice-exam/assets/94177387/3a82386d-cb7a-480b-b99d-64289897ae6f)
 
 
@@ -154,20 +161,8 @@ message logs in dcoker desktop
 
 these servers I have in my application with using docker, and  I am using docker to run all of them ,
 have push in dockerhub cloud as you can see the images.
-
-✔ Container backend-microservices-frontend-1  Running                                                                                                                                                                        0.0s
-✔ Container postgres_db                       Running                                                                                                                                                                        0.0s
-✔ Container pgadmin                           Running                                                                                                                                                                        0.0s
-✔ Container rabbitmq                          Running                                                                                                                                                                        0.0s
-✔ Container zipkin                            Running                                                                                                                                                                        0.0s
-✔ Container discovery-server                  Running                                                                                                                                                                        0.0s
-✔ Container api-gateway                       Running                                                                                                                                                                        0.0s
-✔ Container orders                            Running                                                                                                                                                                        0.0s
-✔ Container auth-users                        Running                                                                                                                                                                        0.0s
-✔ Container products                          Running                                                                                                                                                                        0.0s
-✔ Container notification                      Running                                                                                                                                                                        0.0s
-✔ Container fraud                             Running
-
+                                                                                                                                                  
+![Screenshot 2024-02-28 at 17 13 45](https://github.com/mohyus15/microservice-exam/assets/94177387/d684ce0f-9d9e-461e-b0a5-dc0a849a72fd)
 
 
 
