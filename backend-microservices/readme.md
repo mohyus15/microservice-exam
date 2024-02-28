@@ -123,9 +123,9 @@ finaly will arrive this page where will see the order summary, before redirect t
 i have postgres database and pgadmin
 http://localhost:5050/browser/
 pgadmin password: oslo2020
+create server to see the data this pgadmin as the image shows
 <img width="841" alt="Screenshot 2024-02-28 at 16 58 09" src="https://github.com/mohyus15/microservice-exam/assets/94177387/db01aca0-5946-4304-b2f8-f589a9cdbe74">
 ![Screenshot 2024-02-28 at 15 33 57](https://github.com/mohyus15/microservice-exam/assets/94177387/e272fc8b-46c5-47f5-97e9-33a79806d912)
-cretse server to see the data this pgadmin as the image shows
 ![Screenshot 2024-02-28 at 15 33 57](https://github.com/mohyus15/microservice-exam/assets/94177387/97a966d8-b1f2-43d8-9a01-f033fadbf033)
 ![Screenshot 2024-02-28 at 15 34 16](https://github.com/mohyus15/microservice-exam/assets/94177387/35b2d28d-7e56-452e-a47b-15f832bad3ad)
 ![Screenshot 2024-02-28 at 15 34 46](https://github.com/mohyus15/microservice-exam/assets/94177387/4360d3e7-9ccf-4ee2-9c3c-4f9bb9bd32b9)
