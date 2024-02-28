@@ -10,7 +10,6 @@
         <module name="notific" />
         <module name="discovery-server" />
         <module name="shipping" />
-        <module name="fraud-api" />
         <module name="fraud" />
         <module name="api-gateway" />
         <module name="auth-users" />
@@ -24,6 +23,7 @@
       <module name="auth-users-module" target="1.8" />
       <module name="common_api" target="20" />
       <module name="customers" target="17" />
+      <module name="fraud-api" target="20" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

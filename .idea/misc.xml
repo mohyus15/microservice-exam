@@ -27,6 +27,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/backend-microservices/common_api/pom.xml" />
+        <option value="$PROJECT_DIR$/backend-microservices/fraud-api/pom.xml" />
       </set>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
