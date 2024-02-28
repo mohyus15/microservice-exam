@@ -1,7 +1,7 @@
-Guidelines for my Application
+ # Guidelines for my Application
 
 
-These are the servers and their respective ports used in my application:
+ ## These are the servers and their respective ports used in my application:
 Products: 8081
 Orders: 8085
 Notification: 8086
@@ -16,13 +16,13 @@ Zipkin: 9411
 Pgadmin: 5050
 In addition to these servers, I am also utilizing OpenFeign.
 
-1. Starting Docker Compose:
+# 1. Starting Docker Compose:
 To start Docker Compose, run the following command:
 
 docker-compose up -d
 docker-compose up -d --build
 
-2. Application Workflow:
+# 2. Application Workflow:
 Here's how my application functions, as per the assignment requirements:
 
 Users land on the homepage and select a product.
@@ -33,10 +33,10 @@ After registration, users are redirected to the shipping page, operating on a se
 Finally, users reach the place order page where they can review shipping details and order information before submitting the order.
 
 
-3. Application Purpose:
+# 3. Application Purpose:
 The main purpose of this project is to develop a web application using microservices. Note that while the frontend is functional, some pages lack proper protection. The addition of the shipping server was necessary for both the assignment requirements and to further explore microservices architecture. It's important to mention that the shipping server does not utilize message queues.
 
-products server POST: http://localhost:8080/api/products  
+1: products server POST: http://localhost:8080/api/products  
 {
 "name": "java",
 "image":"https://images.unsplash.com/photo-1622997151859-455e5797aca1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8amF2YSUyMGJvb2t8ZW58MHx8MHx8fDA%3D",
@@ -86,7 +86,7 @@ products server POST: http://localhost:8080/api/products
 }
 
 
-4. Admin Dashboard:
+#4. Admin Dashboard:
 Admin credentials:
 
 Email: admin@admin.com
@@ -135,7 +135,7 @@ finally will land on this side of the pg admin
 ![Screenshot 2024-02-28 at 15 36 19](https://github.com/mohyus15/microservice-exam/assets/94177387/c505aff2-e1c5-4ae4-82f7-4c53edcccad8)
 
 
-Rabbitmq interface:
+# Rabbitmq interface:
 http://localhost:15672/#/
 
 ![Screenshot 2024-02-28 at 15 37 09](https://github.com/mohyus15/microservice-exam/assets/94177387/f33f7b7c-a367-40fb-ba6f-23e115abaa95)
@@ -146,7 +146,7 @@ this alle images shows that servers runing spring eurka port: http://localhost:8
 ![Screenshot 2024-02-28 at 15 33 10](https://github.com/mohyus15/microservice-exam/assets/94177387/4aa8fc93-8464-4042-99aa-fd55cab71e6e)
 
 
-images related to docker
+# images related to docker
 ![Screenshot 2024-02-28 at 14 41 06](https://github.com/mohyus15/microservice-exam/assets/94177387/70ba53c4-8b67-47e9-9ada-547967788ba7)
 
 ![Screenshot 2024-02-28 at 14 41 15](https://github.com/mohyus15/microservice-exam/assets/94177387/d86d44ea-9783-41e6-8593-4e3ed51977cf)
@@ -164,7 +164,7 @@ have push in dockerhub cloud as you can see the images.
 
 
 
-Docker Operations:
+# Docker Operations:
 I have pushed all Docker images to DockerHub cloud. Here are the commands used for tagging and pushing the images:
  docker tag b7ee0076f98d mohyus15/frontend:latest
  docker tag 673b4909644c mohyus15/backend-microservices-orders:latest
