@@ -36,8 +36,9 @@ Finally, users reach the place order page where they can review shipping details
 # 3. Application Purpose:
 The main purpose of this project is to develop a web application using microservices. Note that while the frontend is functional, some pages lack proper protection. The addition of the shipping server was necessary for both the assignment requirements and to further explore microservices architecture. It's important to mention that the shipping server does not utilize message queues.
 
-´´´
+
 1: products server POST: http://localhost:8080/api/products  
+```
 {
 "name": "java",
 "image":"https://images.unsplash.com/photo-1622997151859-455e5797aca1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8amF2YSUyMGJvb2t8ZW58MHx8MHx8fDA%3D",
@@ -47,6 +48,7 @@ The main purpose of this project is to develop a web application using microserv
 "description": "This is an example product.",
 "price": 200
 }
+```
 
 
 ´´´
