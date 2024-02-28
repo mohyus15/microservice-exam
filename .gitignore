@@ -1,0 +1,8 @@
+
+.metadata/
+bin/
+
+# IntelliJ project files
+.idea/
+*.iml
+

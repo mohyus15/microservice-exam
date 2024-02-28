@@ -10,10 +10,10 @@
         <module name="notific" />
         <module name="discovery-server" />
         <module name="shipping" />
+        <module name="fraud-api" />
         <module name="fraud" />
         <module name="api-gateway" />
         <module name="auth-users" />
-        <module name="common_API" />
         <module name="orders" />
         <module name="products" />
       </profile>
@@ -21,6 +21,8 @@
     <bytecodeTargetLevel>
       <module name="auth" target="17" />
       <module name="auth-server" target="17" />
+      <module name="auth-users-module" target="1.8" />
+      <module name="common_api" target="20" />
       <module name="customers" target="17" />
     </bytecodeTargetLevel>
   </component>

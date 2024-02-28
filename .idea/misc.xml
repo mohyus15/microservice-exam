@@ -18,7 +18,16 @@
         <option value="$PROJECT_DIR$/backend-microservices/fraud/pom.xml" />
         <option value="$PROJECT_DIR$/common_API/pom.xml" />
         <option value="$PROJECT_DIR$/backend-microservices/common_API/pom.xml" />
+        <option value="$PROJECT_DIR$/backend-microservices/common_api/common_api-module/pom.xml" />
+        <option value="$PROJECT_DIR$/common_api/pom.xml" />
+        <option value="$PROJECT_DIR$/fraud-api/pom.xml" />
+        <option value="$PROJECT_DIR$/backend-microservices/fraud-api/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/backend-microservices/common_api/pom.xml" />
+      </set>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>

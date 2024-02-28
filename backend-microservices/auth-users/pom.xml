@@ -105,9 +105,17 @@
 		</dependency>
 		<dependency>
 			<groupId>com.mo</groupId>
-			<artifactId>common_api</artifactId>
-			<version>1.0-SNAPSHOT</version>
+			<artifactId>fraud</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.mo</groupId>
+			<artifactId>fraud-api</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+
 
 	</dependencies>
 	<dependencyManagement>
