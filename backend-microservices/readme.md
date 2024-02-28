@@ -92,6 +92,38 @@ products server POST: http://localhost:8080/api/products
 "postcode": 98633,
 "country": "Norway"
 }
+admin crendetails:
+email: admin@admin.com
+password: password
+
+and this admin dashboard
+
+
+![Screenshot 2024-02-28 at 14 58 10](https://github.com/mohyus15/microservice-exam/assets/94177387/e8035ab5-9c6f-4bf2-acb4-792dd767ef6d)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
