@@ -103,7 +103,6 @@ The main purpose of this project is to develop a web application using microserv
 }
 ```
 
-
 #4. Admin Dashboard:
 Admin credentials:
 
