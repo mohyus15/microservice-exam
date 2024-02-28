@@ -23,8 +23,6 @@ beside all those servers i am using openfeign
 docker compose up -d build
 docker-compose up -d
 
-
-
 3:Here is how my application works (Let me remind you of my assignment requirements):
 When users land on the homepage, they select a product.
 The selected product takes them to the project details page where they can choose the quantity.
@@ -96,7 +94,7 @@ admin crendetails:
 email: admin@admin.com
 password: password
 
-this admin dashboard, the admin can create create products, reviwe the orders, shippin ´, notification,
+this admin dashboard, the admin can create  products, review the orders, shippin , notification and users.
 
 ![Screenshot 2024-02-28 at 14 58 10](https://github.com/mohyus15/microservice-exam/assets/94177387/e8035ab5-9c6f-4bf2-acb4-792dd767ef6d)
 
@@ -108,14 +106,15 @@ this is the next page where user will redirect to that products detal to selct q
 ![Screenshot 2024-02-28 at 15 58 34](https://github.com/mohyus15/microservice-exam/assets/94177387/65e2c670-fef8-4c96-8297-b54d644bb5b0)
 ![Screenshot 2024-02-28 at 16 06 34](https://github.com/mohyus15/microservice-exam/assets/94177387/b3e17629-27bc-4782-8026-3a18b63efd73)
 
-After this, you will be redirected to the user registration page. If you have already registered, you can see your email displayed at the top right corner.
+After this, you will be redirected to the user registration page. If you have already registered,
+you can see your email displayed at the top right corner.
 Your user data will be securely stored in the database with encryption, 
 and the password will be hashed. Additionally, your user information will be stored locally using localStorage.
 
 ![Screenshot 2024-02-28 at 16 17 46](https://githu![Screenshot 2024-02-28 at 16 18 29](https://github.com/mohyus15/microservice-exam/assets/94177387/9ae4ca00-860a-413d-a709-d75b006e6bd1)
 b.com/mohyus15/microservice-exam/assets/94177387/e7a8c9dc-40f9-4131-a2d1-868032b29e16)
 
-finaly will arrive this page where will see the order summary, before redirect to home page
+finaly will arrive this page where the user see the order summary, before redirect to home page
 
 ![Screenshot 2024-02-28 at 16 18 45](https://github.com/mohyus15/microservice-exam/assets/94177387/3a82386d-cb7a-480b-b99d-64289897ae6f)
 
@@ -148,7 +147,7 @@ this alle images shows that servers runing spring eurka port: http://localhost:8
 ![Screenshot 2024-02-28 at 15 33 10](https://github.com/mohyus15/microservice-exam/assets/94177387/4aa8fc93-8464-4042-99aa-fd55cab71e6e)
 
 
-images relate to docker
+images related to docker
 ![Screenshot 2024-02-28 at 14 41 06](https://github.com/mohyus15/microservice-exam/assets/94177387/70ba53c4-8b67-47e9-9ada-547967788ba7)
 
 ![Screenshot 2024-02-28 at 14 41 15](https://github.com/mohyus15/microservice-exam/assets/94177387/d86d44ea-9783-41e6-8593-4e3ed51977cf)
@@ -159,9 +158,8 @@ message logs in dcoker desktop
 ![Screenshot 2024-02-28 at 14 39 41](https://github.com/mohyus15/microservice-exam/assets/94177387/cdd9c611-e16a-468f-a3f1-e6f06f8260af)
 
 
-these servers I have in my application with using docker, and  I am using docker to run all of them ,
-have push in dockerhub cloud as you can see the images.
-                                                                                                                                                  
+these servers I have in my application are using docker, and  I am using docker to run all of them ,
+have push in dockerhub cloud as you can see the images.                                                                                                                                           
 ![Screenshot 2024-02-28 at 17 13 45](https://github.com/mohyus15/microservice-exam/assets/94177387/d684ce0f-9d9e-461e-b0a5-dc0a849a72fd)
 
 
@@ -180,6 +178,9 @@ this is the all the images have pushed to dockerhub
  docker tag 75793281f730 mohyus15/postgres:latest
  docker tag 3fdba4331fcb mohyus15/dpage/pgadmin4:latest
  docker tag e72e6db7c02e mohyus15/rabbitmq:3.13.0-rc.4-management-alpine
+
+
+ 
 
 
 docker push mohyus15/frontend:latest
@@ -210,6 +211,10 @@ docker pull mohyus15/openzipkin/zipkin:latest
 docker pull mohyus15/postgres:latest
 docker pull mohyus15/dpage/pgadmin4:latest
 docker pull mohyus15/rabbitmq:3.13.0-rc.4-management-alpine
+
+
+
+
 ![Screenshot 2024-![Screenshot 2024-02-28 at 14 36 52](https://github.com/mohyus15/microservice-exam/assets/94177387/eb483ab9-0298-49b6-b1f8-9ae32a6349bb)
 02-28 at 14 36 42](https://github.com/mohyus15/microservice-exam/assets/94177387/73ff222a-ec39-4612-82c7-4bebfd18eb73)
 
