@@ -96,36 +96,60 @@ admin crendetails:
 email: admin@admin.com
 password: password
 
-and this admin dashboard
-
-
+this admin dashboard, the admin can create create products, reviwe the orders, shippin ´, notification,
 ![Screenshot 2024-02-28 at 14 58 10](https://github.com/mohyus15/microservice-exam/assets/94177387/e8035ab5-9c6f-4bf2-acb4-792dd767ef6d)
 
+front page where the user will  when application is started, and user will select products.
+![Screenshot 2024-02-28 at 15 56 20](https://github.com/mohyus15/microservice-exam/assets/94177387/57825ade-42e3-48c7-b2b2-da03095251c4)
+this is the next page where user will redirect to that products detal to selct qty for this 
+![Screenshot 2024-02-28 at 15 58 34](https://github.com/mohyus15/microservice-exam/assets/94177387/65e2c670-fef8-4c96-8297-b54d644bb5b0)
+![Screenshot 2024-02-28 at 16 06 34](https://github.com/mohyus15/microservice-exam/assets/94177387/b3e17629-27bc-4782-8026-3a18b63efd73)
+After this, you will be redirected to the user registration page. If you have already registered, you can see your email displayed at the top right corner.
+Your user data will be securely stored in the database with encryption, 
+and the password will be hashed. Additionally, your user information will be stored locally using localStorage.
+![Screenshot 2024-02-28 at 16 17 46](https://githu![Screenshot 2024-02-28 at 16 18 29](https://github.com/mohyus15/microservice-exam/assets/94177387/9ae4ca00-860a-413d-a709-d75b006e6bd1)
+b.com/mohyus15/microservice-exam/assets/94177387/e7a8c9dc-40f9-4131-a2d1-868032b29e16)
+finaly will arrive this page where will see the order summary, before redirect to home page
+![Screenshot 2024-02-28 at 16 18 45](https://github.com/mohyus15/microservice-exam/assets/94177387/3a82386d-cb7a-480b-b99d-64289897ae6f)
 
 
+i have postgres database and pgadmin
+http://localhost:5050/browser/
+pgadmin password: oslo2020
+<img width="841" alt="Screenshot 2024-02-28 at 16 58 09" src="https://github.com/mohyus15/microservice-exam/assets/94177387/db01aca0-5946-4304-b2f8-f589a9cdbe74">
+![Screenshot 2024-02-28 at 15 33 57](https://github.com/mohyus15/microservice-exam/assets/94177387/e272fc8b-46c5-47f5-97e9-33a79806d912)
+cretse server to see the data this pgadmin as the image shows
+![Screenshot 2024-02-28 at 15 33 57](https://github.com/mohyus15/microservice-exam/assets/94177387/97a966d8-b1f2-43d8-9a01-f033fadbf033)
+![Screenshot 2024-02-28 at 15 34 16](https://github.com/mohyus15/microservice-exam/assets/94177387/35b2d28d-7e56-452e-a47b-15f832bad3ad)
+![Screenshot 2024-02-28 at 15 34 46](https://github.com/mohyus15/microservice-exam/assets/94177387/4360d3e7-9ccf-4ee2-9c3c-4f9bb9bd32b9)
+and final part for this is to create connection pgadmin in order to see data that belongs to this application. see image.
+use this postgres_user: postgres
+postgres_password: oslo2020
+finally will land on this side of the pg admin 
+![Screenshot 2024-02-28 at 15 35 00](https://github.com/mohyus15/microservice-exam/assets/94177387/6637a1b9-5cf7-4cab-8e08-b769bec99d50)
+![Screenshot 2024-02-28 at 15 36 19](https://github.com/mohyus15/microservice-exam/assets/94177387/c505aff2-e1c5-4ae4-82f7-4c53edcccad8)
 
 
+Rabbitmq interface:
+http://localhost:15672/#/
+
+![Screenshot 2024-02-28 at 15 37 09](https://github.com/mohyus15/microservice-exam/assets/94177387/f33f7b7c-a367-40fb-ba6f-23e115abaa95)
+![Screenshot 2024-02-28 at 15 39 27](https://github.com/mohyus15/microservice-exam/assets/94177387/5ee87428-7658-4556-ad60-90b9535d1622)
 
 
+this alle images shows that servers runing spring eurka port: http://localhost:8761/
+![Screenshot 2024-02-28 at 15 33 10](https://github.com/mohyus15/microservice-exam/assets/94177387/4aa8fc93-8464-4042-99aa-fd55cab71e6e)
 
 
+images relate to docker
+![Screenshot 2024-02-28 at 14 41 06](https://github.com/mohyus15/microservice-exam/assets/94177387/70ba53c4-8b67-47e9-9ada-547967788ba7)
 
+![Screenshot 2024-02-28 at 14 41 15](https://github.com/mohyus15/microservice-exam/assets/94177387/d86d44ea-9783-41e6-8593-4e3ed51977cf)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+message logs in dcoker desktop 
+![Screenshot 2024-02-28 at 14 40 42](https://github.com/mohyus15/microservice-exam/assets/94177387/c1dabbfd-e3bf-4802-906c-143f67a28c8f)
+![Screenshot 2024-02-28 at 14 40 16](https://github.com/mohyus15/microservice-exam/assets/94177387/5cb88acc-71e1-482d-a7a8-800970a61d5c)
+![Screenshot 2024-02-28 at 14 39 41](https://github.com/mohyus15/microservice-exam/assets/94177387/cdd9c611-e16a-468f-a3f1-e6f06f8260af)
 
 
 these servers I have in my application with using docker, and  I am using docker to run all of them ,
@@ -191,5 +215,9 @@ docker pull mohyus15/openzipkin/zipkin:latest
 docker pull mohyus15/postgres:latest
 docker pull mohyus15/dpage/pgadmin4:latest
 docker pull mohyus15/rabbitmq:3.13.0-rc.4-management-alpine
+![Screenshot 2024-![Screenshot 2024-02-28 at 14 36 52](https://github.com/mohyus15/microservice-exam/assets/94177387/eb483ab9-0298-49b6-b1f8-9ae32a6349bb)
+02-28 at 14 36 42](https://github.com/mohyus15/microservice-exam/assets/94177387/73ff222a-ec39-4612-82c7-4bebfd18eb73)
+
+
 
 
