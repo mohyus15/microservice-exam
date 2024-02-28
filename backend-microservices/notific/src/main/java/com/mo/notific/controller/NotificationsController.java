@@ -27,12 +27,12 @@ public class NotificationsController {
 
     @GetMapping(path = "{id}")
     public void getNotificationById(@PathVariable("id") Long id) {
-        log.info("new message have send{}");
         notificationServer.getNotification(id);
     }
 
     @GetMapping
     public List<Notification> getNotifications(){
+        log.info("-----------------------new message have send----------------------------------------");
         return notificationServer.getAllNotifications();
     }
 

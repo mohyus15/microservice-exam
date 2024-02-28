@@ -7,6 +7,8 @@
     <file url="file://$PROJECT_DIR$/backend-microservices/auth-server/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backend-microservices/auth-users/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backend-microservices/auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backend-microservices/common_API/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backend-microservices/common_API/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backend-microservices/customers/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backend-microservices/discovery-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/backend-microservices/fraud/src/main/java" charset="UTF-8" />

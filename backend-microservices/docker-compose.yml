@@ -19,6 +19,8 @@ services:
     container_name: zipkin
     ports:
       - "9411:9411"
+    environment:
+      MANAGEMENT_TRACING_BASEURL: http://zipkin:9411
     networks:
       - spring
 
@@ -36,7 +38,6 @@ services:
       SPRING_PROFILES_ACTIVE: docker
     networks:
       - spring
-
 
   rabbitmq:
     image: rabbitmq:3.13.0-rc.4-management-alpine
@@ -65,7 +66,6 @@ services:
       - spring
     restart: unless-stopped
 
-
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4:latest
@@ -89,9 +89,8 @@ services:
     ports:
       - "8085:8085"
     environment:
-       SPRING_PROFILES_ACTIVE: docker
-       SPRING_RABBITMQ_HOST: rabbitmq
-
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_RABBITMQ_HOST: rabbitmq
     networks:
       - spring
     depends_on:
@@ -132,6 +131,7 @@ services:
       - postgres
       - rabbitmq
       - discovery-server
+      - zipkin
 
   notification:
     container_name: notification
@@ -143,12 +143,15 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: docker
       SPRING_RABBITMQ_HOST: rabbitmq
+      MANAGEMENT_ZIPKIN_TRACING_ENDPOINT: http://zipkin:9411
     networks:
       - spring
     depends_on:
       - postgres
       - rabbitmq
       - discovery-server
+      - zipkin
+
   fruad:
     container_name: fraud
     build:
@@ -165,6 +168,8 @@ services:
       - postgres
       - rabbitmq
       - discovery-server
+      - zipkin
+
   frontend:
     image: frontend
     build:
@@ -172,6 +177,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
+    networks:
+      - spring
+
   auth-users:
     container_name: auth-users
     build:
@@ -186,7 +194,7 @@ services:
     depends_on:
       - postgres
       - discovery-server
-
+      - zipkin
 
 networks:
   postgres:

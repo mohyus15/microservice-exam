@@ -13,6 +13,7 @@
         <module name="fraud" />
         <module name="api-gateway" />
         <module name="auth-users" />
+        <module name="common_API" />
         <module name="orders" />
         <module name="products" />
       </profile>

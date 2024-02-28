@@ -5,6 +5,7 @@ import com.mo.authusers.dto.SignUpRequest;
 import com.mo.authusers.models.Role;
 import com.mo.authusers.models.User;
 import com.mo.authusers.repositories.UserRepository;
+import com.mo.fraud.FraudCheckResponse;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -41,7 +42,7 @@ public class AuthenticationService {
 
         user = userService.save(user);
 
-        /*
+
 
      FraudCheckResponse fraudCheckResponse = restTemplate.getForObject("http://FRAUD:8084/api/fraud/{customerId}",
                FraudCheckResponse.class, user.getId());
@@ -51,7 +52,7 @@ public class AuthenticationService {
             throw new IllegalStateException("this is a fraudster");
         }
 
-         */
+
 
 
         var jwt = jwtService.generateToken(user);

@@ -16,6 +16,8 @@
         <option value="$PROJECT_DIR$/backend-microservices/auth/pom.xml" />
         <option value="$PROJECT_DIR$/backend-microservices/auth-users/pom.xml" />
         <option value="$PROJECT_DIR$/backend-microservices/fraud/pom.xml" />
+        <option value="$PROJECT_DIR$/common_API/pom.xml" />
+        <option value="$PROJECT_DIR$/backend-microservices/common_API/pom.xml" />
       </list>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />

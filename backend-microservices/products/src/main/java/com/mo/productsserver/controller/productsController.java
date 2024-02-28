@@ -18,7 +18,7 @@ public class productsController {
     }
     @PostMapping
     public void RegisterCustomer(@RequestBody ProductsRequest productsRequest) {
-        log.info("new products is register now {} and send to rabbitmq ", productsRequest);
+        log.info("---------------new products is register now {} and send to rabbitmq-----------------------", productsRequest);
         productsServices.createProducts(productsRequest);
 
     }
