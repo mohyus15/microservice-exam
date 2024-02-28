@@ -53,6 +53,7 @@ The main purpose of this project is to develop a web application using microserv
 
 ´´´
 2: orders server POST http://localhost:8080/api/orders    
+```
 {
 "email": "mo@example.com",
 "orderListItemsDto": [
@@ -68,17 +69,19 @@ The main purpose of this project is to develop a web application using microserv
 ],
 "orderNumber": "fdfshagfuyegfuyweg"
 }
-
+```
 
 3: notifications server POST http://localhost:8080/api/notifications
+```
 {
 "orderNumber":"121asfrasda",
 "email":"1@hwotmail.com"
 }
-
+```
 
 
 4: shipping server POST http://localhost:8080/api/shipping
+```
 
 {
 "email": "q1@hotmail.com",
@@ -87,6 +90,18 @@ The main purpose of this project is to develop a web application using microserv
 "postcode": 98633,
 "country": "Norway"
 }
+
+```
+
+5: auth users POST http://localhost:8080/api/v1/signup
+```
+{
+    "firstName":"q11s",
+    "lastName":"qwssw11",
+    "email": "q1wwss13@hotmail.com",
+    "password":"12345"
+}
+```
 
 
 #4. Admin Dashboard:
