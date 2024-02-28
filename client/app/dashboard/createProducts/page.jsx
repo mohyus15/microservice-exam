@@ -10,7 +10,7 @@ function CreatePage() {
         const image = formData.get("image");
         const brand = formData.get("brand");
         const category = formData.get("category");
-        const countInStock = formData.get("countInStock");
+        const countInStock = parseInt(formData.get("countInStock"));
         const description = formData.get("description");
         const price = formData.get("price");
 

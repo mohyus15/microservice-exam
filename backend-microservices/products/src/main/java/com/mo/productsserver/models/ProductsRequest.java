@@ -15,4 +15,8 @@ public class ProductsRequest {
     private Integer countInStock;
     private String description;
     private Integer price;
+
+    public void setCountInStock(Integer countInStock) {
+        this.countInStock = countInStock != null ? countInStock : 0;
+    }
 }

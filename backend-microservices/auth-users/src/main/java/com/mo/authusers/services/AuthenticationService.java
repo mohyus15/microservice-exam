@@ -11,10 +11,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-
-
-
-
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -71,6 +67,7 @@ public class AuthenticationService {
     }
 
     public List<User> getAllUsers() {
+        System.out.println("all users ");
         return userRepository.findAll();
     }
 }

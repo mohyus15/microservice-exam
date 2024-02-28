@@ -30,9 +30,9 @@ public class AuthenticationController {
         return authenticationService.signin(request);
     }
 
-    @GetMapping("/users")
+    @GetMapping("/all")
     public List<User> getAllUsers() {
-        log.info("new all are fetch ");
+        log.info("new all are fetch");
         return authenticationService.getAllUsers();
     }
 }

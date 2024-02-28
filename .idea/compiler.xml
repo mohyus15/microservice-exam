@@ -21,6 +21,7 @@
       <module name="auth" target="17" />
       <module name="auth-server" target="17" />
       <module name="auth-users-module" target="1.8" />
+      <module name="common" target="17" />
       <module name="common_api" target="20" />
       <module name="customers" target="17" />
       <module name="fraud-api" target="20" />
