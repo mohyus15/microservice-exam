@@ -100,7 +100,7 @@ this admin dashboard, the admin can create create products, reviwe the orders, s
 
 ![Screenshot 2024-02-28 at 14 58 10](https://github.com/mohyus15/microservice-exam/assets/94177387/e8035ab5-9c6f-4bf2-acb4-792dd767ef6d)
 
-front page where the user will  when application is started, and user will select products.
+front page where the user will  start when application is started, and user will select products.
 
 ![Screenshot 2024-02-28 at 15 56 20](https://github.com/mohyus15/microservice-exam/assets/94177387/57825ade-42e3-48c7-b2b2-da03095251c4)
 this is the next page where user will redirect to that products detal to selct qty for this 
