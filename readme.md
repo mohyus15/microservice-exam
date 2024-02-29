@@ -49,19 +49,7 @@ These commands will pull the specified Docker images from DockerHub and then sta
 Make sure you have Docker Compose installed and configured properly on your system before executing these commands.
 ```
 cd  backend-microservices
-docker pull mohyus15/backend-microservices-api-gateway:latest
-docker pull mohyus15/backend-microservices-auth-users:latest
-docker pull mohyus15/backend-microservices-products:latest
-docker pull mohyus15/backend-microservices-notification:latest
-docker pull mohyus15/backend-microservices-orders:latest
-docker pull mohyus15/backend-microservices-fruad:latest
-docker pull mohyus15/backend-microservices-shipping:latest
-docker pull mohyus15/backend-microservices-discovery-server:latest
-docker pull mohyus15/frontend:latest
-docker pull mohyus15/postgres:latest
-docker pull mohyus15/pgadmin4:latest
-docker pull openzipkin/zipkin:latest
-docker compose up -d
+docker compose up
 ```
 
 
