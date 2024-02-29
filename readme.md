@@ -34,13 +34,14 @@ Finally, users reach the place order page where they can review shipping details
 
 
 ### synchronous communication
-
+* Synchronous: Auth-Users ↔ Fraud
 In the auth-users service, we directly communicate synchronously with the fraud service to perform fraud checks during user registration.
 Using a RestTemplate, we send a request to the fraud service's endpoint. Upon receiving the response, we check if the user is flagged as a fraudster. 
 If detected, an exception is thrown, indicating fraudulent activity. Additionally, the service saves the fraud check result in the database.
 see see img on below, or ```select * from fraud_check_history``` in the fraud database 
 
 ### asynchronous communication 
+* Asynchronous: Orders → Notification
 Whenever an order is placed within the order server, a notification containing crucial information like the user's email,
 order ID, and product details is promptly relayed to the notification service. 
 This asynchronous communication is made possible through a message queue, aligning with the event-driven architecture principles covered in class.
@@ -52,6 +53,31 @@ The notification server then persists the received data in PostgreSQL, allowing 
 
 # 3. Application Purpose:
 The main purpose of this project is to develop a web application using microservices. Note that while the frontend is functional, some pages lack proper protection. The addition of the shipping server was necessary for both the assignment requirements and to further explore microservices architecture. It's important to mention that the shipping server does not utilize message queues.
+
+
+# Docker Operations:
+These commands will pull the specified Docker images from DockerHub and then start the services using Docker Compose.
+Make sure you have Docker Compose installed and configured properly on your system before executing these commands.
+```
+docker pull mohyus15/backend-microservices-auth-users:latest
+docker pull mohyus15/backend-microservices-fraud:latest
+docker pull mohyus15/backend-microservices-notification:latest
+docker pull mohyus15/backend-microservices-products:latest
+docker pull mohyus15/backend-microservices-api-gateway:latest
+docker pull mohyus15/backend-microservices-discovery-server:latest
+docker pull mohyus15/frontend:latest
+docker pull mohyus15/backend-microservices-orders:latest
+docker pull mohyus15/backend-microservices-shipping:latest
+docker pull mohyus15/postgres:latest
+docker pull mohyus15/dpage/pgadmin4:latest
+docker pull mohyus15/rabbitmq:3.13.0-rc.4-management-alpine
+docker pull mohyus15/openzipkin/zipkin:latest
+docker compose up -d --build
+docker compose up -d
+```
+
+
+
 
 
 1: products server POST: http://localhost:8080/api/products  
@@ -233,28 +259,6 @@ fruad images
 
 
 
-# Docker Operations:
-I have pushed all Docker images to DockerHub cloud. Here are the commands used for tagging and pushing the images:
- docker tag b7ee0076f98d mohyus15/frontend:latest
- docker tag 673b4909644c mohyus15/backend-microservices-orders:latest
-
-pull this images : docker compose up -d
-```
-docker pull mohyus15/backend-microservices-auth-users:latest
-docker pull mohyus15/backend-microservices-fraud:latest
-docker pull mohyus15/backend-microservices-notification:latest
-docker pull mohyus15/backend-microservices-products:latest
-docker pull mohyus15/backend-microservices-api-gateway:latest
-docker pull mohyus15/backend-microservices-discovery-server:latest
-docker pull mohyus15/frontend:latest
-docker pull mohyus15/backend-microservices-orders:latest
-docker pull mohyus15/backend-microservices-shipping:latest
-docker pull mohyus15/postgres:latest
-docker pull mohyus15/dpage/pgadmin4:latest
-docker pull mohyus15/rabbitmq:3.13.0-rc.4-management-alpine
-docker pull mohyus15/openzipkin/zipkin:latest
-docker compose up -d
-```
 
 
 ![Screenshot 2024-![Screenshot 2024-02-28 at 14 36 52](https://github.com/mohyus15/microservice-exam/assets/94177387/eb483ab9-0298-49b6-b1f8-9ae32a6349bb)
