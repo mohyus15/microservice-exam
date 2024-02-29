@@ -1,57 +1,100 @@
- # Guidelines for my Application
+
+Kandidatnr:             27
+ # Guidelines for my Application                                                                                             
 
 
- ## These are the servers and their respective ports used in my application:
-Products: 8081
-Orders: 8085
-Notification: 8086
-Shipping: 8087
-Fraud: 8084
-Auth-Users: 8089
-Discovery Server: 8761
-API Gateway: 8080
-Postgres: 5432 (used in Docker)
-Frontend: 3000
-Zipkin: 9411
-Pgadmin: 5050
-In addition to these servers, I am also utilizing OpenFeign.
+ ## 1:  These are the servers and their respective ports used in my application:
+* Products: 8081
+* Orders: 8085
+* Notification: 8086
+* Shipping: 8087
+* Fraud: 8084
+* Auth-Users: 8089
+* Discovery Server: 8761
+* API Gateway: 8080
+* Postgres: 5432 (used in Docker)
+* Frontend: 3000
+* Zipkin: 9411
+* Pgadmin: 5050
+* In addition to these servers, I am also utilizing OpenFeign.
 
-# 1. Starting Docker Compose:
-To start Docker Compose, run the following command:
-
-docker-compose up -d
-docker-compose up -d --build
 
 # 2. Application Workflow:
 Here's how my application functions, as per the assignment requirements:
 
-Users land on the homepage and select a product.
-They are then directed to the product details page to select the quantity.
-A shopping cart icon at the top right corner reveals the shopping cart upon clicking.
-Users must register if they haven't already. Once registered, their credentials are stored in the browser's local storage.
-After registration, users are redirected to the shipping page, operating on a separate server.
-Finally, users reach the place order page where they can review shipping details and order information before submitting the order.
+Users start by landing on the homepage and selecting a product. Then, they proceed to the product details page to select the quantity.
+Clicking on the shopping cart icon reveals the shopping cart. If users haven't registered yet, they need to do so. 
+Once registered, their credentials are stored locally and in the database, with synchronous communication between the auth-users server and the fraud server on the backend. 
+After registration, users are directed to the shipping page on a separate server. Finally, they reach the place order page to review shipping details and order information before submitting the order
 
 
 ### synchronous communication
-
+* Synchronous: Auth-Users ↔ Fraud
 In the auth-users service, we directly communicate synchronously with the fraud service to perform fraud checks during user registration.
 Using a RestTemplate, we send a request to the fraud service's endpoint. Upon receiving the response, we check if the user is flagged as a fraudster. 
 If detected, an exception is thrown, indicating fraudulent activity. Additionally, the service saves the fraud check result in the database.
 see see img on below, or ```select * from fraud_check_history``` in the fraud database 
 
 ### asynchronous communication 
+* Asynchronous: Orders → Notification
 Whenever an order is placed within the order server, a notification containing crucial information like the user's email,
 order ID, and product details is promptly relayed to the notification service. 
 This asynchronous communication is made possible through a message queue, aligning with the event-driven architecture principles covered in class.
 The notification server then persists the received data in PostgreSQL, allowing users to view relevant information through the frontend 
 
 
+# Docker Operations:
+These commands will pull the specified Docker images from DockerHub and then start the services using Docker Compose.
+Make sure you have Docker Compose installed and configured properly on your system before executing these commands.
+```
+cd  backend-microservices
+docker pull mohyus15/backend-microservices-api-gateway:latest
+docker pull mohyus15/backend-microservices-auth-users:latest
+docker pull mohyus15/backend-microservices-products:latest
+docker pull mohyus15/backend-microservices-notification:latest
+docker pull mohyus15/backend-microservices-orders:latest
+docker pull mohyus15/backend-microservices-fruad:latest
+docker pull mohyus15/backend-microservices-shipping:latest
+docker pull mohyus15/backend-microservices-discovery-server:latest
+docker pull mohyus15/frontend:latest
+docker pull mohyus15/postgres:latest
+docker pull mohyus15/pgadmin4:latest
+docker pull openzipkin/zipkin:latest
+
+docker compose up -d --build
+docker compose up -d
+```
+
+#4. Admin Dashboard:
+All users listed below are admin users. You can log in with any of the following credentials, and you will be redirected to the dashboard where you can create products:
+![Screenshot 2024-02-29 at 20 08 14](https://github.com/mohyus15/microservice-exam/assets/94177387/5bc1fed6-7a8a-4626-a059-623265927d3f)
 
 
+1:
+```
+ Email: john.doe@example.com, 
+ Password: password123";
+```
+2:
+```
+ Email: jane.doe@example.com,
+ Password: password456";
+```
+3:
+```
+ Email: alice.smith@example.com, 
+ Password: password789
+```
+4:
+```
+ Email: bob.johnson@example.com, 
+ Password: passwordabc";
+```
 
-# 3. Application Purpose:
-The main purpose of this project is to develop a web application using microservices. Note that while the frontend is functional, some pages lack proper protection. The addition of the shipping server was necessary for both the assignment requirements and to further explore microservices architecture. It's important to mention that the shipping server does not utilize message queues.
+### normal user
+When logged out as an admin, and you want to see the process for a normal user buying something, 
+simply refer to the Application Workflow mentioned earlier.
+
 
 
 1: products server POST: http://localhost:8080/api/products  
@@ -119,38 +162,14 @@ The main purpose of this project is to develop a web application using microserv
     "password":"12345"
 }
 ```
-
-<<<<<<< HEAD
-#4. Admin Dashboard:
-Admin credentials: all of them are admin
-=======
-6: fraud server http://localhost:8084/api/fraud/7
-
 use this url to chech where user is fraud or not, by giving /id number
+6: fraud server 
+```
+http://localhost:8084/api/fraud/7
+```
 
-#4. Admin Dashboard:
-Admin credentials: all of them are admin
-1:
-```
->>>>>>> 1947fb9420ec92ba019c5e02b262bfb53277bd91
- Email: john.doe@example.com, 
- Password: password123";
-```
-2:
-```
- Email: jane.doe@example.com,
- Password: password456";
-```
-3:
-```
- Email: alice.smith@example.com, 
- Password: password789
-```
-4:
-```
- Email: bob.johnson@example.com, 
- Password: passwordabc";
-```
+
+
 
 The admin dashboard allows administrators to manage products, review orders, shipping, notifications, and users.
 Images:
@@ -173,7 +192,8 @@ and the password will be hashed. Additionally, your user information will be sto
 ![Screenshot 2024-02-28 at 16 17 46](https://githu![Screenshot 2024-02-28 at 16 18 29](https://github.com/mohyus15/microservice-exam/assets/94177387/9ae4ca00-860a-413d-a709-d75b006e6bd1)
 b.com/mohyus15/microservice-exam/assets/94177387/e7a8c9dc-40f9-4131-a2d1-868032b29e16)
 
-finaly will arrive this page where the user see the order summary, before redirect to home page
+
+Finally, you will arrive at this page where the user can see the order summary before being redirected to the homepage.
 
 ![Screenshot 2024-02-28 at 16 18 45](https://github.com/mohyus15/microservice-exam/assets/94177387/3a82386d-cb7a-480b-b99d-64289897ae6f)
 
@@ -219,8 +239,11 @@ message logs in dcoker desktop
 
 these servers I have in my application are using docker, and  I am using docker to run all of them ,
 have push in dockerhub cloud as you can see the images.                                                                                                                                           
-![Screenshot 2024-02-28 at 17 13 45](https://github.com/mohyus15/microservice-exam/assets/94177387/d684ce0f-9d9e-461e-b0a5-dc0a849a72fd)
+
+![Screenshot 2024-02-29 at 17 07 10](https://github.com/mohyus15/microservice-exam/assets/94177387/566929a5-853f-410a-9d1c-b5e102b0e653)
+
 ![Screenshot 2024-02-28 at 17 24 25 (2)](https://github.com/mohyus15/microservice-exam/assets/94177387/e689cda4-f957-4c79-bce4-30104c052642)
+
 
 fruad images 
 
@@ -228,30 +251,6 @@ fruad images
 
 ![Screenshot 2024-02-29 at 02 38 13](https://github.com/mohyus15/microservice-exam/assets/94177387/83be2609-e6d3-400e-b85a-302b765575c9)
 
-
-
-# Docker Operations:
-I have pushed all Docker images to DockerHub cloud. Here are the commands used for tagging and pushing the images:
- docker tag b7ee0076f98d mohyus15/frontend:latest
- docker tag 673b4909644c mohyus15/backend-microservices-orders:latest
-
-pull this images : docker compose up -d
-```
-docker pull mohyus15/backend-microservices-auth-users:latest
-docker pull mohyus15/backend-microservices-fraud:latest
-docker pull mohyus15/backend-microservices-notification:latest
-docker pull mohyus15/backend-microservices-products:latest
-docker pull mohyus15/backend-microservices-api-gateway:latest
-docker pull mohyus15/backend-microservices-discovery-server:latest
-docker pull mohyus15/frontend:latest
-docker pull mohyus15/backend-microservices-orders:latest
-docker pull mohyus15/backend-microservices-shipping:latest
-docker pull mohyus15/postgres:latest
-docker pull mohyus15/dpage/pgadmin4:latest
-docker pull mohyus15/rabbitmq:3.13.0-rc.4-management-alpine
-docker pull mohyus15/openzipkin/zipkin:latest
-docker compose up -d
-```
 
 
 ![Screenshot 2024-![Screenshot 2024-02-28 at 14 36 52](https://github.com/mohyus15/microservice-exam/assets/94177387/eb483ab9-0298-49b6-b1f8-9ae32a6349bb)
