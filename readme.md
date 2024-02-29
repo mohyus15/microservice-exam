@@ -1,4 +1,6 @@
- # Guidelines for my Application
+
+Kandidatnr:             27
+ # Guidelines for my Application                                                                                             
 
 
  ## 1:  These are the servers and their respective ports used in my application:
@@ -39,13 +41,6 @@ Whenever an order is placed within the order server, a notification containing c
 order ID, and product details is promptly relayed to the notification service. 
 This asynchronous communication is made possible through a message queue, aligning with the event-driven architecture principles covered in class.
 The notification server then persists the received data in PostgreSQL, allowing users to view relevant information through the frontend 
-
-
-
-
-
-# 3. Application Purpose:
-The main purpose of this project is to develop a web application using microservices. Note that while the frontend is functional, some pages lack proper protection. The addition of the shipping server was necessary for both the assignment requirements and to further explore microservices architecture. It's important to mention that the shipping server does not utilize message queues.
 
 
 # Docker Operations:
