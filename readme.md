@@ -249,6 +249,10 @@ fruad images
 02-28 at 14 36 42](https://github.com/mohyus15/microservice-exam/assets/94177387/73ff222a-ec39-4612-82c7-4bebfd18eb73)
 ![Screenshot 2024-02-28 at 17 23 10](https://github.com/mohyus15/microservice-exam/assets/94177387/1bd5d5af-32ef-414d-b5e9-a6d304c1b959)
 
+### 
+Zipkin: I couldn't find the servers to check their health, although I have configured them in Zipkin.
+![Screenshot 2024-02-29 at 22 52 53](https://github.com/mohyus15/microservice-exam/assets/94177387/af042e09-2bdc-4f56-a100-56acc45bfaec)
+
 
 
 
