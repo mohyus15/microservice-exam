@@ -105,15 +105,22 @@ The main purpose of this project is to develop a web application using microserv
 
 #4. Admin Dashboard:
 Admin credentials:
-
+```
  Email: john.doe@example.com, 
  Password: password123";
+```
+```
  Email: jane.doe@example.com,
  Password: password456";
+```
+```
  Email: alice.smith@example.com, 
  Password: password789
+```
+```
  Email: bob.johnson@example.com, 
  Password: passwordabc";
+```
 
 The admin dashboard allows administrators to manage products, review orders, shipping, notifications, and users.
 Images:
