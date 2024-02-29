@@ -2,6 +2,7 @@
 Kandidatnr:             27
  # Guidelines for my Application                                                                                             
 
+my githup url: https://github.com/mohyus15/microservice-exam.git
 
  ## 1:  These are the servers and their respective ports used in my application:
 * Products: 8081
