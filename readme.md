@@ -1,7 +1,7 @@
  # Guidelines for my Application
 
 
- ## These are the servers and their respective ports used in my application:
+ ## 1:  These are the servers and their respective ports used in my application:
 * Products: 8081
 * Orders: 8085
 * Notification: 8086
@@ -16,21 +16,14 @@
 * Pgadmin: 5050
 * In addition to these servers, I am also utilizing OpenFeign.
 
-# 1. Starting Docker Compose:
-To start Docker Compose, run the following command:
-
-docker-compose up -d
-docker-compose up -d --build
 
 # 2. Application Workflow:
 Here's how my application functions, as per the assignment requirements:
 
-Users land on the homepage and select a product.
-They are then directed to the product details page to select the quantity.
-A shopping cart icon at the top right corner reveals the shopping cart upon clicking.
-Users must register if they haven't already. Once registered, their credentials are stored in the browser's local storage.
-After registration, users are redirected to the shipping page, operating on a separate server.
-Finally, users reach the place order page where they can review shipping details and order information before submitting the order.
+Users start by landing on the homepage and selecting a product. Then, they proceed to the product details page to select the quantity.
+Clicking on the shopping cart icon reveals the shopping cart. If users haven't registered yet, they need to do so. 
+Once registered, their credentials are stored locally and in the database, with synchronous communication between the auth-users server and the fraud server on the backend. 
+After registration, users are directed to the shipping page on a separate server. Finally, they reach the place order page to review shipping details and order information before submitting the order
 
 
 ### synchronous communication
@@ -77,7 +70,34 @@ docker compose up -d --build
 docker compose up -d
 ```
 
+#4. Admin Dashboard:
+All users listed below are admin users. You can log in with any of the following credentials, and you will be redirected to the dashboard where you can create products:
 
+
+1:
+```
+ Email: john.doe@example.com, 
+ Password: password123";
+```
+2:
+```
+ Email: jane.doe@example.com,
+ Password: password456";
+```
+3:
+```
+ Email: alice.smith@example.com, 
+ Password: password789
+```
+4:
+```
+ Email: bob.johnson@example.com, 
+ Password: passwordabc";
+```
+
+### normal user
+When logged out as an admin, and you want to see the process for a normal user buying something, 
+simply refer to the Application Workflow mentioned earlier.
 
 
 
@@ -146,38 +166,14 @@ docker compose up -d
     "password":"12345"
 }
 ```
-
-
-#4. Admin Dashboard:
-Admin credentials: all of them are admin
-=======
-6: fraud server http://localhost:8084/api/fraud/7
-
 use this url to chech where user is fraud or not, by giving /id number
+6: fraud server 
+```
+http://localhost:8084/api/fraud/7
+```
 
-#4. Admin Dashboard:
-Admin credentials: all of them are admin
-1:
-```
->>>>>>> 1947fb9420ec92ba019c5e02b262bfb53277bd91
- Email: john.doe@example.com, 
- Password: password123";
-```
-2:
-```
- Email: jane.doe@example.com,
- Password: password456";
-```
-3:
-```
- Email: alice.smith@example.com, 
- Password: password789
-```
-4:
-```
- Email: bob.johnson@example.com, 
- Password: passwordabc";
-```
+
+
 
 The admin dashboard allows administrators to manage products, review orders, shipping, notifications, and users.
 Images:
