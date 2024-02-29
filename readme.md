@@ -51,6 +51,16 @@ Make sure you have Docker Compose installed and configured properly on your syst
 cd  backend-microservices
 docker compose up
 ```
+The notifications service occasionally takes time to connect to the discovery server.
+I have a video demonstrating the application's performance during development
+
+
+
+https://github.com/mohyus15/microservice-exam/assets/94177387/01fe850e-d602-4d4c-abab-30671d046350
+
+
+
+
 
 
 N.B. if you want rebuild docker use this command below
@@ -63,12 +73,12 @@ All users listed below are admin users. You can log in with any of the following
 1:
 ```
  Email: john.doe@example.com, 
- Password: password123";
+ Password: password123;
 ```
 2:
 ```
  Email: jane.doe@example.com,
- Password: password456";
+ Password: password456;
 ```
 3:
 ```
@@ -78,7 +88,7 @@ All users listed below are admin users. You can log in with any of the following
 4:
 ```
  Email: bob.johnson@example.com, 
- Password: passwordabc";
+ Password: passwordabc;
 ```
 
 ### normal user
@@ -247,6 +257,12 @@ fruad images
 02-28 at 14 36 42](https://github.com/mohyus15/microservice-exam/assets/94177387/73ff222a-ec39-4612-82c7-4bebfd18eb73)
 ![Screenshot 2024-02-28 at 17 23 10](https://github.com/mohyus15/microservice-exam/assets/94177387/1bd5d5af-32ef-414d-b5e9-a6d304c1b959)
 
+### 
+Zipkin: I couldn't find the servers to check their health, although I have configured them in Zipkin.
+![Screenshot 2024-02-29 at 22 52 53](https://github.com/mohyus15/microservice-exam/assets/94177387/af042e09-2bdc-4f56-a100-56acc45bfaec)
+
+# Diagram
+ ![Screenshot 2024-03-01 at 00 24 41](https://github.com/mohyus15/microservice-exam/assets/94177387/db7e060b-9887-41c2-865f-7b563260cda4)
 
 
 
