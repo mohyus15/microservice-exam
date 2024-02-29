@@ -55,6 +55,7 @@ The notifications service occasionally takes time to connect to the discovery se
 I have a video demonstrating the application's performance during development
 
 
+
 N.B. if you want rebuild docker use this command below
 docker compose up -d --build
 #4. Admin Dashboard:
@@ -65,12 +66,12 @@ All users listed below are admin users. You can log in with any of the following
 1:
 ```
  Email: john.doe@example.com, 
- Password: password123";
+ Password: password123;
 ```
 2:
 ```
  Email: jane.doe@example.com,
- Password: password456";
+ Password: password456;
 ```
 3:
 ```
@@ -80,7 +81,7 @@ All users listed below are admin users. You can log in with any of the following
 4:
 ```
  Email: bob.johnson@example.com, 
- Password: passwordabc";
+ Password: passwordabc;
 ```
 
 ### normal user
