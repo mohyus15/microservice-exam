@@ -35,13 +35,10 @@ public class AuthenticationService {
                 .role(Role.ROLE_USER)
                 .build();
 
-        user = userService.save(user);
-
-
+        user = userRepository.saveAndFlush(user);
 
      FraudCheckResponse fraudCheckResponse = restTemplate.getForObject("http://FRAUD:8084/api/fraud/{customerId}",
                FraudCheckResponse.class, user.getId());
-
         assert fraudCheckResponse != null;
         if (fraudCheckResponse.isFraudster()) {
             throw new IllegalStateException("this is a fraudster");
