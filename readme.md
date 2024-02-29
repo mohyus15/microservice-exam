@@ -104,19 +104,23 @@ The main purpose of this project is to develop a web application using microserv
 ```
 
 #4. Admin Dashboard:
-Admin credentials:
+Admin credentials: all of them are admin
+1:
 ```
  Email: john.doe@example.com, 
  Password: password123";
 ```
+2:
 ```
  Email: jane.doe@example.com,
  Password: password456";
 ```
+3:
 ```
  Email: alice.smith@example.com, 
  Password: password789
 ```
+4:
 ```
  Email: bob.johnson@example.com, 
  Password: passwordabc";
