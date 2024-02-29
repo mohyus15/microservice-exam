@@ -2,8 +2,8 @@
 
 
  ## These are the servers and their respective ports used in my application:
-Products: 8081
-Orders: 8085
+* Products: 8081
+* Orders: 8085
 Notification: 8086
 Shipping: 8087
 Fraud: 8084
