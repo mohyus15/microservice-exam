@@ -1,10 +1,8 @@
 version: '3.8'
 services:
   discovery-server:
+    image: mohyus15/backend-microservices-discovery-server:latest
     container_name: discovery-server
-    build:
-      context: ./discovery-server
-      dockerfile: Dockerfile
     ports:
       - "8761:8761"
     environment:
@@ -15,7 +13,7 @@ services:
       - spring
 
   zipkin:
-    image: ghcr.io/openzipkin/zipkin-slim:${TAG:-latest}
+    image: openzipkin/zipkin:latest
     container_name: zipkin
     ports:
       - "9411:9411"
@@ -25,10 +23,8 @@ services:
       - spring
 
   api-gateway:
+    image: mohyus15/backend-microservices-api-gateway:latest
     container_name: api-gateway
-    build:
-      context: ./api-gateway
-      dockerfile: Dockerfile
     ports:
       - "8080:8080"
     depends_on:
@@ -52,7 +48,7 @@ services:
       - spring
 
   postgres:
-    image: postgres:latest
+    image: mohyus15/postgres:latest
     container_name: postgres_db
     volumes:
       - ./init-scripts:/docker-entrypoint-initdb.d
@@ -67,8 +63,8 @@ services:
     restart: unless-stopped
 
   pgadmin:
+    image: mohyus15/pgadmin4:latest
     container_name: pgadmin
-    image: dpage/pgadmin4:latest
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
@@ -82,10 +78,8 @@ services:
     restart: unless-stopped
 
   orders:
+    image: mohyus15/backend-microservices-orders:latest
     container_name: orders
-    build:
-      context: ./orders
-      dockerfile: Dockerfile
     ports:
       - "8085:8085"
     environment:
@@ -99,10 +93,8 @@ services:
       - discovery-server
 
   products:
+    image: mohyus15/backend-microservices-products:latest
     container_name: products
-    build:
-      context: ./products
-      dockerfile: Dockerfile
     ports:
       - "8081:8081"
     environment:
@@ -116,10 +108,8 @@ services:
       - discovery-server
 
   shipping:
+    image: mohyus15/backend-microservices-shipping:latest
     container_name: shipping
-    build:
-      context: ./shipping
-      dockerfile: Dockerfile
     ports:
       - "8087:8087"
     environment:
@@ -134,10 +124,8 @@ services:
       - zipkin
 
   notification:
+    image: mohyus15/backend-microservices-notification:latest
     container_name: notification
-    build:
-      context: ./notific
-      dockerfile: Dockerfile
     ports:
       - "8086:8086"
     environment:
@@ -153,10 +141,8 @@ services:
       - zipkin
 
   fruad:
+    image: mohyus15/backend-microservices-fruad:latest
     container_name: fraud
-    build:
-      context: ./fraud
-      dockerfile: Dockerfile
     ports:
       - "8084:8084"
     environment:
@@ -171,7 +157,8 @@ services:
       - zipkin
 
   frontend:
-    image: frontend
+    image: mohyus15/frontend:latest
+    container_name: frontend
     build:
       context: ./../client
       dockerfile: Dockerfile
@@ -181,10 +168,8 @@ services:
       - spring
 
   auth-users:
+    image: mohyus15/backend-microservices-auth-users:latest
     container_name: auth-users
-    build:
-      context: ./auth-users
-      dockerfile: Dockerfile
     ports:
       - "8089:8089"
     environment:
@@ -198,7 +183,7 @@ services:
 
 networks:
   postgres:
-    driver: bridgeneclient
+    driver: bridge
   spring:
     driver: bridge
 
