@@ -33,12 +33,14 @@ After registration, users are redirected to the shipping page, operating on a se
 Finally, users reach the place order page where they can review shipping details and order information before submitting the order.
 
 
+### synchronous communication
+
 In the auth-users service, we directly communicate synchronously with the fraud service to perform fraud checks during user registration.
 Using a RestTemplate, we send a request to the fraud service's endpoint. Upon receiving the response, we check if the user is flagged as a fraudster. 
 If detected, an exception is thrown, indicating fraudulent activity. Additionally, the service saves the fraud check result in the database.
 see see img on below, or ```select * from fraud_check_history``` in the fraud database 
 
-
+### asynchronous communication 
 Whenever an order is placed within the order server, a notification containing crucial information like the user's email,
 order ID, and product details is promptly relayed to the notification service. 
 This asynchronous communication is made possible through a message queue, aligning with the event-driven architecture principles covered in class.
