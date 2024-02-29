@@ -60,11 +60,12 @@ docker pull mohyus15/frontend:latest
 docker pull mohyus15/postgres:latest
 docker pull mohyus15/pgadmin4:latest
 docker pull openzipkin/zipkin:latest
-
-docker compose up -d --build
 docker compose up -d
 ```
 
+
+N.B. if you want rebuild docker use this command below
+docker compose up -d --build
 #4. Admin Dashboard:
 All users listed below are admin users. You can log in with any of the following credentials, and you will be redirected to the dashboard where you can create products:
 ![Screenshot 2024-02-29 at 20 08 14](https://github.com/mohyus15/microservice-exam/assets/94177387/5bc1fed6-7a8a-4626-a059-623265927d3f)
