@@ -261,6 +261,8 @@ fruad images
 Zipkin: I couldn't find the servers to check their health, although I have configured them in Zipkin.
 ![Screenshot 2024-02-29 at 22 52 53](https://github.com/mohyus15/microservice-exam/assets/94177387/af042e09-2bdc-4f56-a100-56acc45bfaec)
 
+# Diagram
+ D![Screenshot 2024-03-01 at 00 24 41](https://github.com/mohyus15/microservice-exam/assets/94177387/db7e060b-9887-41c2-865f-7b563260cda4)
 
 
 
