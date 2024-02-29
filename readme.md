@@ -51,6 +51,8 @@ Make sure you have Docker Compose installed and configured properly on your syst
 cd  backend-microservices
 docker compose up
 ```
+The notifications service occasionally takes time to connect to the discovery server.
+I have a video demonstrating the application's performance during development
 
 
 N.B. if you want rebuild docker use this command below
