@@ -25,7 +25,7 @@ public class RabbitMQProducer {
     public void publishMessage(
             Order payload){
         LOGGER.info(String.format(
-                "message sender to rabbitmq from orders -> to from notification %s", payload));
+                "message sender to rabbitmq from orders -> to from notification %s-------", payload));
         rabbitTemplate.convertAndSend(exchange, routing_key,payload);
 
     }
