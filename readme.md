@@ -2,6 +2,7 @@
 Kandidatnr:             27
  # Guidelines for my Application                                                                                             
 
+my githup url: https://github.com/mohyus15/microservice-exam.git
 
  ## 1:  These are the servers and their respective ports used in my application:
 * Products: 8081
@@ -48,23 +49,12 @@ These commands will pull the specified Docker images from DockerHub and then sta
 Make sure you have Docker Compose installed and configured properly on your system before executing these commands.
 ```
 cd  backend-microservices
-docker pull mohyus15/backend-microservices-api-gateway:latest
-docker pull mohyus15/backend-microservices-auth-users:latest
-docker pull mohyus15/backend-microservices-products:latest
-docker pull mohyus15/backend-microservices-notification:latest
-docker pull mohyus15/backend-microservices-orders:latest
-docker pull mohyus15/backend-microservices-fruad:latest
-docker pull mohyus15/backend-microservices-shipping:latest
-docker pull mohyus15/backend-microservices-discovery-server:latest
-docker pull mohyus15/frontend:latest
-docker pull mohyus15/postgres:latest
-docker pull mohyus15/pgadmin4:latest
-docker pull openzipkin/zipkin:latest
-
-docker compose up -d --build
-docker compose up -d
+docker compose up
 ```
 
+
+N.B. if you want rebuild docker use this command below
+docker compose up -d --build
 #4. Admin Dashboard:
 All users listed below are admin users. You can log in with any of the following credentials, and you will be redirected to the dashboard where you can create products:
 ![Screenshot 2024-02-29 at 20 08 14](https://github.com/mohyus15/microservice-exam/assets/94177387/5bc1fed6-7a8a-4626-a059-623265927d3f)
