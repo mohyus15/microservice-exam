@@ -39,6 +39,13 @@ If detected, an exception is thrown, indicating fraudulent activity. Additionall
 see see img on below, or ```select * from fraud_check_history``` in the fraud database 
 
 
+Whenever an order is placed within the order server, a notification containing crucial information like the user's email,
+order ID, and product details is promptly relayed to the notification service. 
+This asynchronous communication is made possible through a message queue, aligning with the event-driven architecture principles covered in class.
+The notification server then persists the received data in PostgreSQL, allowing users to view relevant information through the frontend 
+
+
+
 
 
 # 3. Application Purpose:
