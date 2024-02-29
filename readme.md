@@ -230,21 +230,22 @@ I have pushed all Docker images to DockerHub cloud. Here are the commands used f
  docker tag b7ee0076f98d mohyus15/frontend:latest
  docker tag 673b4909644c mohyus15/backend-microservices-orders:latest
 
-
+pull this images : docker compose up -d
 ```
-docker pull mohyus15/frontend:latest
-docker pull mohyus15/backend-microservices-orders:latest
 docker pull mohyus15/backend-microservices-auth-users:latest
 docker pull mohyus15/backend-microservices-fraud:latest
-docker pull mohyus15/backend-microservices-shipping:latest
 docker pull mohyus15/backend-microservices-notification:latest
 docker pull mohyus15/backend-microservices-products:latest
 docker pull mohyus15/backend-microservices-api-gateway:latest
 docker pull mohyus15/backend-microservices-discovery-server:latest
-docker pull mohyus15/openzipkin/zipkin:latest
+docker pull mohyus15/frontend:latest
+docker pull mohyus15/backend-microservices-orders:latest
+docker pull mohyus15/backend-microservices-shipping:latest
 docker pull mohyus15/postgres:latest
 docker pull mohyus15/dpage/pgadmin4:latest
 docker pull mohyus15/rabbitmq:3.13.0-rc.4-management-alpine
+docker pull mohyus15/openzipkin/zipkin:latest
+docker compose up -d
 ```
 
 
