@@ -147,7 +147,7 @@ docker compose up -d
 }
 ```
 
-<<<<<<< HEAD
+
 #4. Admin Dashboard:
 Admin credentials: all of them are admin
 =======
