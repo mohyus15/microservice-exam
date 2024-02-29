@@ -103,6 +103,10 @@ The main purpose of this project is to develop a web application using microserv
 }
 ```
 
+6: fraud server http://localhost:8084/api/fraud/7
+
+use this url to chech where user is fraud or not, by giving /id number
+
 #4. Admin Dashboard:
 Admin credentials: all of them are admin
 1:
