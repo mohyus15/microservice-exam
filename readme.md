@@ -4,17 +4,17 @@
  ## These are the servers and their respective ports used in my application:
 * Products: 8081
 * Orders: 8085
-Notification: 8086
-Shipping: 8087
-Fraud: 8084
-Auth-Users: 8089
-Discovery Server: 8761
-API Gateway: 8080
-Postgres: 5432 (used in Docker)
-Frontend: 3000
-Zipkin: 9411
-Pgadmin: 5050
-In addition to these servers, I am also utilizing OpenFeign.
+* Notification: 8086
+* Shipping: 8087
+* Fraud: 8084
+* Auth-Users: 8089
+* Discovery Server: 8761
+* API Gateway: 8080
+* Postgres: 5432 (used in Docker)
+* Frontend: 3000
+* Zipkin: 9411
+* Pgadmin: 5050
+* In addition to these servers, I am also utilizing OpenFeign.
 
 # 1. Starting Docker Compose:
 To start Docker Compose, run the following command:
