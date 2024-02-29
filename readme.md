@@ -59,8 +59,6 @@ I have a video demonstrating the application's performance during development
 https://github.com/mohyus15/microservice-exam/assets/94177387/01fe850e-d602-4d4c-abab-30671d046350
 
 
-https://github.com/mohyus15/microservice-exam/assets/94177387/5d65cbec-2e48-400c-8749-ea814ca70fee
-
 
 
 
