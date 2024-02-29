@@ -59,6 +59,7 @@ The main purpose of this project is to develop a web application using microserv
 These commands will pull the specified Docker images from DockerHub and then start the services using Docker Compose.
 Make sure you have Docker Compose installed and configured properly on your system before executing these commands.
 ```
+cd  backend-microservices
 docker pull mohyus15/backend-microservices-auth-users:latest
 docker pull mohyus15/backend-microservices-fraud:latest
 docker pull mohyus15/backend-microservices-notification:latest
