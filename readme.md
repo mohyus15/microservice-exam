@@ -200,7 +200,8 @@ and the password will be hashed. Additionally, your user information will be sto
 ![Screenshot 2024-02-28 at 16 17 46](https://githu![Screenshot 2024-02-28 at 16 18 29](https://github.com/mohyus15/microservice-exam/assets/94177387/9ae4ca00-860a-413d-a709-d75b006e6bd1)
 b.com/mohyus15/microservice-exam/assets/94177387/e7a8c9dc-40f9-4131-a2d1-868032b29e16)
 
-finaly will arrive this page where the user see the order summary, before redirect to home page
+
+Finally, you will arrive at this page where the user can see the order summary before being redirected to the homepage.
 
 ![Screenshot 2024-02-28 at 16 18 45](https://github.com/mohyus15/microservice-exam/assets/94177387/3a82386d-cb7a-480b-b99d-64289897ae6f)
 
@@ -257,8 +258,6 @@ fruad images
 ![Screenshot 2024-02-29 at 03 06 56](https://github.com/mohyus15/microservice-exam/assets/94177387/45ad054b-567b-479c-8f80-9cff7e0cfd39)
 
 ![Screenshot 2024-02-29 at 02 38 13](https://github.com/mohyus15/microservice-exam/assets/94177387/83be2609-e6d3-400e-b85a-302b765575c9)
-
-
 
 
 
