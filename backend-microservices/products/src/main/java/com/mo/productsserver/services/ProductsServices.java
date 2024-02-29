@@ -19,8 +19,12 @@ public class ProductsServices {
 
     public void createProducts(ProductsRequest productsRequest) {
         Products products1 = getProducts1();
+        Products products2 = getProducts2();
+        Products products3 = getProducts3();
         System.out.println(products1);
         productRepository.save(products1);
+        productRepository.save(products2);
+        productRepository.save(products3);
 
         Products products = new Products();
          products.setName(productsRequest.getName());
@@ -44,6 +48,29 @@ public class ProductsServices {
         products1.setDescription("best phone");
         products1.setPrice(12);
         return products1;
+    }
+
+    private static Products getProducts2() {
+        Products products2 = new Products();
+        products2.setName("Samsung Galaxy");
+        products2.setImage("https://images.unsplash.com/photo-1620288650879-20db0eb38c05?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        products2.setBrand("Samsung");
+        products2.setCountInStock(80);
+        products2.setCategory("Electronics");
+        products2.setDescription("A popular Android smartphone.");
+        products2.setPrice(1000);
+        return products2;
+    }
+    private static Products getProducts3() {
+        Products products3 = new Products();
+        products3.setName("Macbook Pro");
+        products3.setImage("https://images.unsplash.com/photo-1569770218135-bea267ed7e84?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TWFjYm9vayUyMFByb3xlbnwwfHwwfHx8MA%3D%3D");
+        products3.setBrand("Apple");
+        products3.setCountInStock(50);
+        products3.setCategory("Electronics");
+        products3.setDescription("Powerful laptop for professionals.");
+        products3.setPrice(2000);
+        return products3;
     }
 
     public List<Products> getProducts() {

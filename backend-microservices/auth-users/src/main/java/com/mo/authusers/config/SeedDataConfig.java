@@ -25,18 +25,48 @@ public class SeedDataConfig implements CommandLineRunner {
     public void run(String... args) {
         if (userRepository.count() == 0) {
 
-        User admin = User
-                      .builder()
-                      .firstName("admin")
-                      .lastName("admin")
-                      .email("admin@admin.com")
-                      .password(passwordEncoder.encode("password"))
-                      .role(Role.ROLE_ADMIN)
-                      .build();
+            User user1 = User.builder()
+                    .firstName("John")
+                    .lastName("Doe")
+                    .email("john.doe@example.com")
+                    .password(passwordEncoder.encode("password123"))
+                    .role(Role.ROLE_ADMIN)
+                    .build();
 
-        userService.save(admin);
-        log.debug("created ADMIN user - {}", admin);
-      }
+            User user2 = User.builder()
+                    .firstName("Jane")
+                    .lastName("Doe")
+                    .email("jane.doe@example.com")
+                    .password(passwordEncoder.encode("password456"))
+                    .role(Role.ROLE_ADMIN)
+                    .build();
+
+            User user3 = User.builder()
+                    .firstName("Alice")
+                    .lastName("Smith")
+                    .email("alice.smith@example.com")
+                    .password(passwordEncoder.encode("password789"))
+                    .role(Role.ROLE_ADMIN)
+                    .build();
+
+            User user4 = User.builder()
+                    .firstName("Bob")
+                    .lastName("Johnson")
+                    .email("bob.johnson@example.com")
+                    .password(passwordEncoder.encode("passwordabc"))
+                    .role(Role.ROLE_ADMIN)
+                    .build();
+
+            userService.save(user1);
+            userService.save(user2);
+            userService.save(user3);
+            userService.save(user4);
+
+            log.debug("Created ADMIN user - {}", user1);
+            log.debug("Created ADMIN user - {}", user2);
+            log.debug("Created ADMIN user - {}", user3);
+            log.debug("Created ADMIN user - {}", user4);
+
+        }
     }
-
 }

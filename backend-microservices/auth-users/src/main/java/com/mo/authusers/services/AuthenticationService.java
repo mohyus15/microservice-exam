@@ -38,7 +38,7 @@ public class AuthenticationService {
         user = userService.save(user);
 
 
-/*
+
      FraudCheckResponse fraudCheckResponse = restTemplate.getForObject("http://FRAUD:8084/api/fraud/{customerId}",
                FraudCheckResponse.class, user.getId());
 
@@ -46,8 +46,6 @@ public class AuthenticationService {
         if (fraudCheckResponse.isFraudster()) {
             throw new IllegalStateException("this is a fraudster");
         }
-
- */
 
 
 

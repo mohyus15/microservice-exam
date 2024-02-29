@@ -106,10 +106,16 @@ The main purpose of this project is to develop a web application using microserv
 #4. Admin Dashboard:
 Admin credentials:
 
-Email: admin@admin.com
-Password: password
-The admin dashboard allows administrators to manage products, review orders, shipping, notifications, and users.
+ Email: john.doe@example.com, 
+ Password: password123";
+ Email: jane.doe@example.com,
+ Password: password456";
+ Email: alice.smith@example.com, 
+ Password: password789
+ Email: bob.johnson@example.com, 
+ Password: passwordabc";
 
+The admin dashboard allows administrators to manage products, review orders, shipping, notifications, and users.
 Images:
 Here are screenshots illustrating various aspects of the application:
 ![Screenshot 2024-02-28 at 14 58 10](https://github.com/mohyus15/microservice-exam/assets/94177387/e8035ab5-9c6f-4bf2-acb4-792dd767ef6d)

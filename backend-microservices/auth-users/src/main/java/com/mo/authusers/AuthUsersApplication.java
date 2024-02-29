@@ -7,9 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients(
-		basePackages = "com.mo.fruad"
-)
+
 
 public class AuthUsersApplication {
 
