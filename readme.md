@@ -50,6 +50,7 @@ Make sure you have Docker Compose installed and configured properly on your syst
 ```
 cd  backend-microservices
 docker compose up
+docker compose up -d
 ```
 The notifications service occasionally takes time to connect to the discovery server.
 I have a video demonstrating the application's performance during development
@@ -64,6 +65,7 @@ https://github.com/mohyus15/microservice-exam/assets/94177387/01fe850e-d602-4d4c
 
 
 N.B. if you want rebuild docker use this command below
+docker compose up -d
 docker compose up -d --build
 #4. Admin Dashboard:
 All users listed below are admin users. You can log in with any of the following credentials, and you will be redirected to the dashboard where you can create products:
